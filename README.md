@@ -2,6 +2,6 @@
 Práctica de Diseño de Sistemas Interactivos UC3M
 
 
-Javier Tinajo
-Juan Manuel Torres
-Fernando Jimenez
+Javier Tinajo </br>
+Juan Manuel Torres </br>
+Fernando Jimenez </br>
