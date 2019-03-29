@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { NuevoContactoPage } from '../nuevo-contacto/nuevo-contacto';
-import {VerContactoPage} from '../ver-contacto/ver-contacto'
-import { Contact } from '../../models/contact.model';
-import { ContactService } from '../../services/contact.service';
-import { Observable } from 'rxjs/Observable';
+import { NuevoContactoPage } from '../..//pages/nuevo-contacto/nuevo-contacto';
+import {FirebaseDbProvider, Item} from '../../providers/firebase-db/firebase-db';
 
-
+import { Observable } from 'rxjs-compat';
 /**
  * Generated class for the LibretaContactosPage page.
  *
@@ -21,45 +18,26 @@ import { Observable } from 'rxjs/Observable';
 })
 export class LibretaContactosPage {
 
-  contacts$: Observable<Contact[]>;
+  private items: Item[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+   public dbFirebase: FirebaseDbProvider ) {
+  }
+
+  ionViewDidEnter() {
+
+  	this.dbFirebase.getContactos().subscribe(items => this.items = items);
+  }
+
+  onLoadContactosPage() {
+
+  	this.navCtrl.push(NuevoContactoPage);
+  }
   
-  //contacts: Contact[] =[];
+  delete(item: Item) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private ContactService:ContactService) {
-  }
-
-  ionViewWillEnter(){
-
-    //this.contacts = this.ContactService.getContacts();
-
-    this.contacts$ = this.ContactService
-    .getContacts()  //Retorna la DB
-    .snapshotChanges() //retorna los cambios en la DB (key and value)
-    .map(
-      /*
-      Estas líneas retornan un array de  objetos con el id del registro y su contenido
-      {
-        "key":"value",
-        contact.name,
-        contact.organization,
-        ...
-      }
-      */
-      changes => {
-        return changes.map(c=> ({
-          key: c.payload.key, ...c.payload.val()
-        }));
-      }); 
-  }
-
-  onLoadContactosPage(){
-    this.navCtrl.push(NuevoContactoPage);
-  }
-
-  onItemTapped($event, contact){
-    this.navCtrl.push(VerContactoPage, contact);
-   
-
+    this.dbFirebase.deleteContact(item);
+    this.dbFirebase.getContactos().subscribe(items => this.items = items);
   }
 
 }

@@ -2,54 +2,59 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import{LibretaContactosPage} from '../pages/libreta-contactos/libreta-contactos';
-import{AcercaDePage} from '../pages/acerca-de/acerca-de';
-import{NuevoContactoPage} from '../pages/nuevo-contacto/nuevo-contacto';
-import{VerContactoPage} from '../pages/ver-contacto/ver-contacto'
+
+import { LibretaContactosPage } from '../pages/libreta-contactos/libreta-contactos';
+import { NuevoContactoPage } from '../pages/nuevo-contacto/nuevo-contacto';
+import { AcercaDePage } from '../pages/acerca-de/acerca-de';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {ContactService} from '../services/contact.service'
-import { Services } from '@angular/core/src/view';
-import {FIREBASE_CONFIG} from '../app/firebase.credentials';
-import {AngularFireModule} from 'angularfire2';
-import {AngularFireDatabaseModule} from 'angularfire2/database'
+
+// conexion a la base de firebase
+export const fireBaseConfig = {
+
+        apiKey: "AIzaSyDrhRswyLgQRG-bL1G3yfJdhT8dvWn-8GQ",
+    authDomain: "micro06-a2b7b.firebaseapp.com",
+    databaseURL: "https://micro06-a2b7b.firebaseio.com",
+    projectId: "micro06-a2b7b",
+    storageBucket: "micro06-a2b7b.appspot.com",
+    messagingSenderId: "498332994944"
+  };
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     LibretaContactosPage,
-    AcercaDePage,
     NuevoContactoPage,
-    VerContactoPage
-
+    AcercaDePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireModule.initializeApp(fireBaseConfig),
     AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     LibretaContactosPage,
-    AcercaDePage,
     NuevoContactoPage,
-    VerContactoPage
+    AcercaDePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ContactService
+    FirebaseDbProvider,
+    FirebaseDbProvider
   ]
 })
 export class AppModule {}

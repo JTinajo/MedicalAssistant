@@ -1,36 +1,31 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ContactService } from '../../services/contact.service'
-
-/**
- * Generated class for the NuevoContactoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {FirebaseDbProvider, Item} from '../../providers/firebase-db/firebase-db';
+import { Observable } from 'rxjs-compat';
 
 @IonicPage()
 @Component({
-  selector: 'page-nuevo-contacto',
-  templateUrl: 'nuevo-contacto.html',
+	selector: 'page-nuevo-contacto',
+	templateUrl: 'nuevo-contacto.html',
 })
 export class NuevoContactoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private contactService: ContactService) {
-  }
+	public todo = new Item();
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NuevoContactoPage');
-  }
+	constructor(public navCtrl: NavController, public navParams: NavParams,
+	 public dbFirebase: FirebaseDbProvider ) {
 
-  onAddContact(value: {nombre:string,organizacion:string,movil:string,correo:string}){
+	}
 
-    //this.contactService.addContact(value);
+	ionViewDidLoad() {
 
-    this.contactService.addContact(value).then(ref => {
-      console.log(ref.key);
-    });
-    this.navCtrl.pop();
-  }
-  
+	}
+
+	logForm() {
+
+		this.todo.id = Math.random().toString(36).substr(2, 5);
+		this.dbFirebase.addContacto(this.todo);
+		this.navCtrl.pop();
+	}
+
 }
