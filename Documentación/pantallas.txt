@@ -1,0 +1,27 @@
+
+home
+login
+registro
+
+	#paciente
+Menu_Paciente
+Pedir_diagnostico
+Ver_diagnostico
+
+
+	#Doctor
+Menu_Doctor
+Peticiones
+Historial
+Detalles_peticion
+
+
+ionic generate page login
+ionic generate page registro
+ionic generate page Menu_Paciente
+ionic generate page Pedir_diagnostico
+ionic generate page Ver_diagnostico
+ionic generate page Menu_Doctor
+ionic generate page Peticiones
+ionic generate page Historial
+ionic generate page Detalles_peticion
