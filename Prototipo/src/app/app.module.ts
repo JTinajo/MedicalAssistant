@@ -11,6 +11,15 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
 
+export const fireBaseConfig={
+	apiKey: "AIzaSyCt8ghk0jefWuxiIL_zGD_-WsCFGceNOzE",
+    authDomain: "medicalassistantg-9.firebaseapp.com",
+    databaseURL: "https://medicalassistantg-9.firebaseio.com",
+    projectId: "medicalassistantg-9",
+    storageBucket: "medicalassistantg-9.appspot.com",
+    messagingSenderId: "373080706394"
+}
+
 @NgModule({
   declarations: [
     MyApp,
@@ -18,8 +27,8 @@ import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),A
-	ngularFireModule.initializeApp(fireBaseConfig),
+    IonicModule.forRoot(MyApp),
+	AngularFireModule.initializeApp(fireBaseConfig),
 	AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
@@ -36,10 +45,4 @@ import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
 })
 export class AppModule {}
 
-export const fireBaseConfig={
-apiKey: "AIzaSyCt8ghk0jefWuxiIL_zGD_-WsCFGceNOzE",
-    authDomain: "medicalassistantg-9.firebaseapp.com",
-    databaseURL: "https://medicalassistantg-9.firebaseio.com",
-    projectId: "medicalassistantg-9",
-    storageBucket: "medicalassistantg-9.appspot.com",
-    messagingSenderId: "373080706394"
+
