@@ -20,6 +20,11 @@ export class FirebaseDbProvider {
   }
   
   private clientesRef=this.afDB.list<Cliente>('clientes');
+  
+  /* 
+	Añadir aqui las funciones necesarias para base de datos
+	afDB.database.ref('CLAVE').set('VALOR');
+  */
 	 getClientes()
 	 {
 		//return this.clientesRef.valueChanges();
