@@ -19,8 +19,11 @@ export class FirebaseDbProvider {
     console.log('Hello FirebaseDbProvider Provider');
   }
   
-  private clientesRef=this.afDB.list<Cliente>('clientes');
-  
+  //private clientesRef=this.afDB.list<Cliente>('clientes');
+
+  private pacientePeticion=this.afDB.list<Paciente>('pacientePeticion');
+  private doctorDiagnostico=this.afDB.list<Doctor>('doctorDiagnostico');
+
   /* 
 	Añadir aqui las funciones necesarias para base de datos
 	afDB.database.ref('CLAVE').set('VALOR');
@@ -31,6 +34,28 @@ export class FirebaseDbProvider {
 		 this.afDB.database.ref('javi').set('ta tonto');
 		console.log("llamando");
 	 } 
-  
+
+
+   /*
+
+    PROYECTO
+   */
+
+
+   getPeticiones(){
+    return this.pacientePeticion.valueChanges();// doctor <- devolvemos los cambios guardados en firebase
+   }
+
+    getDiagnostico(){
+    return this.pacientePeticion.valueChanges();// paciente <-devolvemos los cambios guardados en firebase (no tenemos en cuenta el paciente)
+   }
+
+   setPeticion(){
+    this.afDB.database.ref('pacientePeticion').set('datos peticion'); //  peticion del paciente
+   }
+
+   setDiagnostico(){
+    this.afDB.database.ref('doctorDiagnostico').set('datos diagnostico'); // contestacion del doctor
+   }
 
 }
