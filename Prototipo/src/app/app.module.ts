@@ -20,6 +20,7 @@ export const fireBaseConfig={
     messagingSenderId: "373080706394"
 }
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -28,8 +29,8 @@ export const fireBaseConfig={
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-	AngularFireModule.initializeApp(fireBaseConfig),
-	AngularFireDatabaseModule
+    AngularFireModule.initializeApp(fireBaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,9 +41,7 @@ export const fireBaseConfig={
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-	FirebaseDbProvider
+    FirebaseDbProvider
   ]
 })
 export class AppModule {}
-
-

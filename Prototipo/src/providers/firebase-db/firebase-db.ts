@@ -36,10 +36,7 @@ export class FirebaseDbProvider {
    } 
    
    getDatos(){
-     return this.afDB.database.ref('paciente').valueChanges().subscribe(
-      data => {
-        console.log("Got data");
-      }
+     //return this.afDB.database.list('paciente').valueChanges();
 
    }
 

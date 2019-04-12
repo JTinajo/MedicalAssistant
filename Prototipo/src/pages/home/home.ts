@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+// cargamos el provides de la base de datos
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 
 @Component({
@@ -7,19 +8,13 @@ import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
   templateUrl: 'home.html'
 })
 export class HomePage {
-	listaClientes:any;
-  datos="--";
-
-  constructor(public navCtrl: NavController,public dbFirebase:FirebaseDbProvider) {
-	
-  }
-  
-   guardar(){
-	  this.dbFirebase.setDatos();
+db:FirebaseDbProvider;
+  constructor(public navCtrl: NavController, public dbF:FirebaseDbProvider ) {
+    this.db = dbF;
   }
 
-  cargar(){
-    this.datos = this.dbFirebase.getDatos();
-  }
 
+  guarda(){
+    this.db.setDatos();
+  }
 }
