@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 // cargamos el provider de la base de datos
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 
-//import { Login } from '../login/login';
+import { LoginPage } from '../login/login';
 
 
 @Component({
@@ -21,7 +21,8 @@ export class HomePage {
 
   
   navegar(): void {
-   // this.navCtrl.push(Login);
+    this.navCtrl.setRoot(LoginPage);
+   console.log("navegando!!!")
  }
   
 

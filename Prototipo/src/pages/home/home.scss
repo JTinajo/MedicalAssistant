@@ -5,15 +5,21 @@ page-home {
         margin:auto;
     }
 
+    div{
+        text-align: center;
+    }
+    span{
+        
+    }
     .tit1{
         font-size:3em;
         font-display: block;
-        color: aqua;    
+        color: aqua; 
+        
     }
     .tit2 {
         @extend .tit1;
         color:black;
-        margin-left: 20%;
     }
 
  
