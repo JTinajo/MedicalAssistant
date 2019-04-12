@@ -20,6 +20,16 @@ export const fireBaseConfig={
     messagingSenderId: "373080706394"
 }
 
+export class Paciente {
+  nombre: string;
+  valor: Number;
+}
+
+export class Doctor {
+  nombre: string;
+  valor: Number;
+}
+
 
 @NgModule({
   declarations: [

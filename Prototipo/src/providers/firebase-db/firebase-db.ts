@@ -1,6 +1,7 @@
 //import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase} from 'angularfire2/database';
+import { Paciente } from '../../app/app.module';
 
 /*
   Generated class for the FirebaseDbProvider provider.
@@ -21,22 +22,22 @@ export class FirebaseDbProvider {
   
   //private clientesRef=this.afDB.list<Cliente>('clientes');
 
-  //private pacientePeticion=this.afDB.list<Paciente>('pacientePeticion');
+  private pacientePeticion=this.afDB.list<Paciente>('paciente/');
   //private doctorDiagnostico=this.afDB.list<Doctor>('doctorDiagnostico');
 
   /* 
 	Añadir aqui las funciones necesarias para base de datos
 	afDB.database.ref('CLAVE').set('VALOR');
   */
-	 setDatos()
+	 setDatos(pac:Paciente)
 	 {
 		//return this.clientesRef.valueChanges();
-		 this.afDB.database.ref('paciente').set('asdfasdfasdfasdf');
+		 this.afDB.database.ref('paciente/'+pac.nombre).set(pac);
 		console.log("llamando");
    } 
    
    getDatos(){
-     //return this.afDB.database.list('paciente').valueChanges();
+     return this.pacientePeticion.valueChanges();
 
    }
 
