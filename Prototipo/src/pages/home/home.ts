@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-// cargamos el provides de la base de datos
+// cargamos el provider de la base de datos
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 import { Paciente } from '../../app/app.module';
 
@@ -14,6 +14,8 @@ db:FirebaseDbProvider;
     this.db = dbF;
   }
 
+  listaPac:any;
+
   pac:Paciente;
   guarda(){
     
@@ -22,4 +24,10 @@ db:FirebaseDbProvider;
     this.pac.valor = 33;
     this.db.setDatos(this.pac);
   }
+
+
+  ionViewDidEnter()
+ {
+ this.db.getDatos().subscribe(pacs=>{this.listaPac=pacs;});
+ }
 }

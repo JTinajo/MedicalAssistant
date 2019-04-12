@@ -8,5 +8,7 @@
 
 <ion-content padding>
     <button ion-button (click)="guarda()"> guarda </button>
-  
+    <p *ngFor="let paciente of listaPac ">     
+      {{paciente.nombre}} {{paciente.valor}}
+       </p>
 </ion-content>
