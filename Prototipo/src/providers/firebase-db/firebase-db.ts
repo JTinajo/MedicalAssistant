@@ -31,7 +31,7 @@ export class FirebaseDbProvider {
 	 getClientes()
 	 {
 		//return this.clientesRef.valueChanges();
-		 this.afDB.database.ref('javi').set('ta tonto');
+		 this.afDB.database.ref('paciente').set('asdfasdfasdfasdf');
 		console.log("llamando");
 	 } 
 
