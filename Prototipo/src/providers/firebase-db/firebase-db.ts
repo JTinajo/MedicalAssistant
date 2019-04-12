@@ -28,12 +28,16 @@ export class FirebaseDbProvider {
 	Añadir aqui las funciones necesarias para base de datos
 	afDB.database.ref('CLAVE').set('VALOR');
   */
-	 getClientes()
+	 setDatos()
 	 {
 		//return this.clientesRef.valueChanges();
 		 this.afDB.database.ref('paciente').set('asdfasdfasdfasdf');
 		console.log("llamando");
-	 } 
+   } 
+   
+   getDatos(){
+     return this.afDB.database.valueChanges();
+   }
 
 
    /*

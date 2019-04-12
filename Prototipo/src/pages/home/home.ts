@@ -8,14 +8,18 @@ import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 })
 export class HomePage {
 	listaClientes:any;
-
+  datos="--";
 
   constructor(public navCtrl: NavController,public dbFirebase:FirebaseDbProvider) {
 	
   }
   
-   hola(){
-	  this.dbFirebase.getClientes();
+   guardar(){
+	  this.dbFirebase.setDatos();
+  }
+
+  cargar(){
+    this.datos = this.dbFirebase.getDatos();
   }
 
 }
