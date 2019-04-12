@@ -21,8 +21,8 @@ export class FirebaseDbProvider {
   
   //private clientesRef=this.afDB.list<Cliente>('clientes');
 
-  private pacientePeticion=this.afDB.list<Paciente>('pacientePeticion');
-  private doctorDiagnostico=this.afDB.list<Doctor>('doctorDiagnostico');
+  //private pacientePeticion=this.afDB.list<Paciente>('pacientePeticion');
+  //private doctorDiagnostico=this.afDB.list<Doctor>('doctorDiagnostico');
 
   /* 
 	Añadir aqui las funciones necesarias para base de datos
@@ -43,19 +43,19 @@ export class FirebaseDbProvider {
 
 
    getPeticiones(){
-    return this.pacientePeticion.valueChanges();// doctor <- devolvemos los cambios guardados en firebase
+    //return this.pacientePeticion.valueChanges();// doctor <- devolvemos los cambios guardados en firebase
    }
 
     getDiagnostico(){
-    return this.pacientePeticion.valueChanges();// paciente <-devolvemos los cambios guardados en firebase (no tenemos en cuenta el paciente)
+    //return this.pacientePeticion.valueChanges();// paciente <-devolvemos los cambios guardados en firebase (no tenemos en cuenta el paciente)
    }
 
    setPeticion(){
-    this.afDB.database.ref('pacientePeticion').set('datos peticion'); //  peticion del paciente
+    //this.afDB.database.ref('pacientePeticion').set('datos peticion'); //  peticion del paciente
    }
 
    setDiagnostico(){
-    this.afDB.database.ref('doctorDiagnostico').set('datos diagnostico'); // contestacion del doctor
+    //this.afDB.database.ref('doctorDiagnostico').set('datos diagnostico'); // contestacion del doctor
    }
 
 }
