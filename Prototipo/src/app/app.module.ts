@@ -21,12 +21,16 @@ export const fireBaseConfig={
 }
 
 export class Paciente {
+  idConsulta: Number;
   nombre: string;
+  peticion: string;
   valor: Number;
 }
 
 export class Doctor {
+  idConsulta: Number;
   nombre: string;
+  respuesta: string;
   valor: Number;
 }
 

@@ -1,7 +1,9 @@
 //import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase} from 'angularfire2/database';
-import { Paciente } from '../../app/app.module';
+import { Paciente, Doctor } from '../../app/app.module';
+
+
 
 /*
   Generated class for the FirebaseDbProvider provider.
@@ -20,48 +22,40 @@ export class FirebaseDbProvider {
     console.log('Hello FirebaseDbProvider Provider');
   }
   
-  //private clientesRef=this.afDB.list<Cliente>('clientes');
-
-  private pacientePeticion=this.afDB.list<Paciente>('paciente/');
-  //private doctorDiagnostico=this.afDB.list<Doctor>('doctorDiagnostico');
-
+  private pacientePeticion=this.afDB.list<Paciente>('paciente');
+  private doctorDiagnostico=this.afDB.list<Doctor>('doctorDiagnostico');
   /* 
 	Añadir aqui las funciones necesarias para base de datos
 	afDB.database.ref('CLAVE').set('VALOR');
   */
-	 setDatos(pac:Paciente)
-	 {
-		//return this.clientesRef.valueChanges();
+
+   // Usar save para crear o modificar un paciente
+	 savePatientPetition(pac:Paciente)
+	 {		
 		 this.afDB.database.ref('paciente/'+pac.nombre).set(pac);
-		console.log("llamando");
+		
    } 
    
-   getDatos(){
+
+   //TODO a revisar el retorno
+   loadPatientPetition(){
+
      return this.pacientePeticion.valueChanges();
 
    }
 
+	 saveDoctocResponse(doc:Doctor)
+	 {		
+		 this.afDB.database.ref('doctor/'+doc.nombre).set(doc);
+		
+   } 
+   
 
-   /*
+   //TODO a revisar el retorno
+   loadDoctorResponse(){
 
-    PROYECTO
-   */
+     return this.doctorDiagnostico.valueChanges();
 
-
-   getPeticiones(){
-    //return this.pacientePeticion.valueChanges();// doctor <- devolvemos los cambios guardados en firebase
-   }
-
-    getDiagnostico(){
-    //return this.pacientePeticion.valueChanges();// paciente <-devolvemos los cambios guardados en firebase (no tenemos en cuenta el paciente)
-   }
-
-   setPeticion(){
-    //this.afDB.database.ref('pacientePeticion').set('datos peticion'); //  peticion del paciente
-   }
-
-   setDiagnostico(){
-    //this.afDB.database.ref('doctorDiagnostico').set('datos diagnostico'); // contestacion del doctor
    }
 
 }

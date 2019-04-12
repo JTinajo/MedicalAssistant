@@ -1,3 +1,21 @@
 page-home {
+    .imgprincipal{
+        height: 40%;
+        top :20%;
+        margin:auto;
+    }
+
+    .tit1{
+        font-size:3em;
+        font-display: block;
+        color: aqua;    
+    }
+    .tit2 {
+        @extend .tit1;
+        color:black;
+        margin-left: 20%;
+    }
+
+ 
 
 }
