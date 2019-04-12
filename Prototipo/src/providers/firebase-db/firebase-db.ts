@@ -36,7 +36,7 @@ export class FirebaseDbProvider {
    } 
    
    getDatos(){
-     return this.afDB.database.valueChanges();
+     return this.afDB.database.ref('paciente').valueChanges();
    }
 
 
