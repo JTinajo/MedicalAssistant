@@ -17,7 +17,8 @@ import { Observable } from 'rxjs';
 export class FirebaseDbProvider {
 
   private pacientePeticion=this.afDB.list<Paciente>('/paciente/');
-  private doctorDiagnostico=this.afDB.list<Doctor>('/doctorDiagnostico/');
+  private doctorDiagnostico=this.afDB.list<Doctor>('/doctor/');
+  private consultas =  this.afDB.list<Consulta>('/consultas/');
 
 
     
@@ -29,37 +30,39 @@ export class FirebaseDbProvider {
   
  
 
-   // Usar save para crear o modificar un paciente
-	 savePatientPetition(pac:Paciente,pet:Consulta)
+   // crea o modifica datos de un paciente
+	 savePatient(pac:Paciente)
 	 {		
-     this.afDB.database.ref('paciente/'+pac.nombre).set(pac);
-     
-     
-		
+        this.afDB.database.ref('paciente/'+pac.nombre).set(pac);	
    } 
    
 
-   //TODO a revisar el retorno
-   loadPatientPetition():Observable<Paciente[]>{
-     return this.pacientePeticion.valueChanges();    
-  
-
+   //Carga listado de pacientes
+   loadPatients():Observable<Paciente[]>{
+     return this.pacientePeticion.valueChanges();     
    }
 
+   
+   // carga paciente con id = idPaciente
+   loadPatientsId(idPaciente:number):Observable<Paciente[]>{
+    return this.afDB.list<Paciente>('/paciente/'+idPaciente+"/").valueChanges();     
+  }
+
+
+   // crea o modifica los datos de un doctor
 	 saveDoctocResponse(doc:Doctor)
 	 {		
-		 this.afDB.database.ref('doctor/'+doc.nombre).set(doc);
-		
+		 this.afDB.database.ref('doctor/'+doc.nombre).set(doc);		
    } 
    
 
-   //TODO a revisar el retorno
-   loadDoctorResponse():Observable<Doctor[]>{
-
+   //Carga listado de doctores
+   loadDoctors():Observable<Doctor[]>{
      return this.doctorDiagnostico.valueChanges();
-
    }
 
+
+   // TODO CONSULTAS
    
 
 }

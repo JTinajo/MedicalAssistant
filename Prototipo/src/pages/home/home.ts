@@ -28,8 +28,9 @@ export class HomePage {
 
  ionViewWillEnter(){
 
-   this.dbF.loadPatientPetition().subscribe(res=>{
+   this.dbF.loadPatients().subscribe(res=>{
     console.log(res);
+    this.myPerson = res;
     });
 
 
