@@ -35,15 +35,12 @@ export class Paciente {
   idPaciente: Number;
   nombre: string;
   edad: number;
-  peticion: string;
-  valor: Number;
 }
 
 export class Doctor {
   idDoctor: Number;
   nombre: string;
-  respuesta: string;
-  valor: Number;
+  edad:number;
 }
 
 export class Consulta {
@@ -55,7 +52,7 @@ export class Consulta {
   descripcion:string;
   
   respuesta?:string;
-  meicamente_doctor?:string[];
+  medicamentos_doctor?:string[];
   idConsulta?:number;  
   idPaciente?:number;
   idDoctor?:number;
