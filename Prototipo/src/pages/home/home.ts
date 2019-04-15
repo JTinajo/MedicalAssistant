@@ -11,8 +11,8 @@ import { LoginPage } from '../login/login';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-
+  
+  public myPerson :any;
 
   constructor(public navCtrl: NavController, public dbF:FirebaseDbProvider ) {
   
@@ -25,6 +25,21 @@ export class HomePage {
    console.log("navegando!!!")
  }
   
+
+ ionViewWillEnter(){
+
+   this.dbF.loadPatientPetition().subscribe(res=>{
+    console.log(res);
+    });
+
+
+  /*const personRef: firebase.database.Reference = firebase.database().ref('/paciente/');
+  personRef.on('value', personSnapshot => {
+    this.myPerson = personSnapshot.val();
+    
+  });*/
+  //console.log(this.myPerson);
+}
 
 
 }
