@@ -28,19 +28,23 @@ export class FirebaseDbProvider {
     
   }
   
- 
+ /*********
+  * 
+  * Pacientes
+  *
+  *****/
 
    // crea o modifica datos de un paciente
 	 savePatient(pac:Paciente)
 	 {		    
-    let key = this.afDB.database.ref('paciente/'+pac.nombre).push(pac).key;	
+    let key = this.afDB.database.ref('/paciente/').push(pac).key;	
     pac.idPaciente = key;
     this.updatePatient(pac);
    }
    
    updatePatient(pac:Paciente)
 	 {		
-    this.afDB.database.ref('paciente/'+pac.nombre).set(pac);	
+    this.afDB.database.ref('/paciente/'+pac.idPaciente).set(pac);	
    }
    
 
@@ -56,11 +60,24 @@ export class FirebaseDbProvider {
   }
 
 
+/**
+ * 
+ * Doctores
+ * 
+ */
+
+
    // crea o modifica los datos de un doctor
-	 saveDoctocResponse(doc:Doctor)
+	 saveDoctoc(doc:Doctor)
 	 {		
-		 this.afDB.database.ref('doctor/'+doc.nombre).set(doc);		
+     let key = this.afDB.database.ref('/doctor/').push(doc).key;	
+    doc.idDoctor = key;
+    this.updateDoctor(doc);	
    } 
+   updateDoctor(doc:Doctor)
+	 {		
+    this.afDB.database.ref('/doctor/'+doc.idDoctor).set(doc);	
+   }
    
 
    //Carga listado de doctores
@@ -70,6 +87,10 @@ export class FirebaseDbProvider {
 
 
    // TODO CONSULTAS
-   
+   /**
+    * 
+    * Consultas
+    * 
+    */
 
 }

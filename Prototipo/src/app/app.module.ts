@@ -22,6 +22,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
 
 
+
 export const fireBaseConfig={
 	apiKey: "AIzaSyCt8ghk0jefWuxiIL_zGD_-WsCFGceNOzE",
     authDomain: "medicalassistantg-9.firebaseapp.com",
@@ -33,14 +34,22 @@ export const fireBaseConfig={
 
 export class Paciente {
   idPaciente?: string;
-  nombre: string;
-  edad: number;
+  usuario: string;
+  pass: string;
+  tlf: string;
+  email:string;
+  NSS: number;
+  fechaNac: Date;
 }
 
 export class Doctor {
   idDoctor?: string;
-  nombre: string;
-  edad:number;
+  usuario: string;
+  pass: string;
+  tlf: string;
+  email:string;
+  NSS: number;
+  fechaNac: Date;
 }
 
 export class Consulta {
