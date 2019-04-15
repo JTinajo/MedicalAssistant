@@ -4,12 +4,83 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-  <ion-navbar>
-    <ion-title>pedir_diagnostico</ion-title>
+<ion-header class="header">
+  <ion-navbar class="navheader">
+    <ion-title class="titulo">MedicalAssistant</ion-title>
+    <img src="assets/imgs/fotoperfil.jpg" class="fotopaciente">
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+
+<form>
+  <ion-list>
+
+      <ion-list-header>Formulario Diagnóstico</ion-list-header>
+
+      <ion-item>
+          <ion-label>Edad Paciente</ion-label>
+          <ion-input maxlength="2" type="tel" placeholder="Edad" required
+          ></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Síntomas</ion-label>
+          <ion-select class="diag" multiple="true" cancelText="Cancelar" okText="OK" placeholder="Seleccione varios">
+            <ion-option value="fiebre">Fiebre</ion-option>
+            <ion-option value="nauseas">Náuseas</ion-option>
+            <ion-option value="vomitos">Vómitos</ion-option>
+            <ion-option value="mareos">Mareos</ion-option>
+            <ion-option value="garganta">Dolor de garganta</ion-option>
+            <ion-option value="caida">Dolor por caída</ion-option>
+            <ion-option value="jaquecas">Jaquecas</ion-option>
+            <ion-option value="diarrea">Diarrea</ion-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>¿Cuándo empezó?</ion-label>
+        <ion-datetime display-format="DD/MM/YYYY" placeholder="dd/mm/yyyy"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>¿Se automédica?</ion-label>
+          <ion-select class="diag" interface="action-sheet" placeholder="Seleccione una">
+            <ion-option value="si">Sí</ion-option>
+            <ion-option value="no">No</ion-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>¿Qué ha tomado?</ion-label>
+          <ion-select class="diag" multiple="true" cancelText="Cancelar" okText="OK" placeholder="Seleccione">
+              <ion-option value="nada">Nada</ion-option>
+            <ion-option value="omeprazol">Omeprazol</ion-option>
+            <ion-option value="adiro">Adiro 100</ion-option>
+            <ion-option value="nolotil">Nolotil</ion-option>
+            <ion-option value="paracetamol ">Paracetamol </ion-option>
+            <ion-option value="antihistamínicos">Antihistamínicos</ion-option>
+            <ion-option value="ibuprofeno">Ibuprofeno</ion-option>
+            <ion-option value="enantyum">Enantyum</ion-option>
+            <ion-option value="alprazolam">Alprazolam</ion-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-input class="observaciones" type="text" placeholder="Describa su caso brevemente"></ion-input>
+      </ion-item>
+    
+  </ion-list>
+
+  
+  
+  
+
+  <div class="contenedorBotones">
+    <button class="botones"  ion-button>Cancelar</button>
+    <button class="botones"  color="secondary" ion-button (click)="enviarPeticion()">Enviar</button>
+  </div>
+</form>
 
 </ion-content>

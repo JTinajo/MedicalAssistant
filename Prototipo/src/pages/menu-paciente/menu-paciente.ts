@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { VerDiagnosticoPage } from '../ver-diagnostico/ver-diagnostico';
+import { PedirDiagnosticoPage } from '../pedir-diagnostico/pedir-diagnostico';
 
 /**
  * Generated class for the MenuPacientePage page.
@@ -22,4 +24,11 @@ export class MenuPacientePage {
     console.log('ionViewDidLoad MenuPacientePage');
   }
 
+
+  VerDiagnostico(){
+    this.navCtrl.push(VerDiagnosticoPage);
+  }
+  PedirDiagnostico(){
+    this.navCtrl.push(PedirDiagnosticoPage);
+  }
 }

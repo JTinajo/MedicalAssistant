@@ -1,3 +1,33 @@
 page-menu-paciente {
-
+    .navheader{
+        height: 67px;
+    }
+    .toolbar-title-ios{
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: rgb(6, 20, 212);
+        pointer-events: auto;
+    }
+    .fotopaciente{
+        width: 50px;
+        position: absolute;
+        top: 15%;
+        right: 5px;
+    }
+    #historial{
+        font-size: 1.4rem;
+        color: rgb(6, 20, 212);
+        margin: 8% 0;
+    }
+    #ContenedorBotones{
+        margin-top: 2%;
+    }
+    .botones{
+        margin-bottom: 5%;
+    }
+    .mapa{
+        width: 100%;
+        margin-bottom: 25%;
+    }
 }

@@ -4,12 +4,41 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-  <ion-navbar>
-    <ion-title>ver_diagnostico</ion-title>
+<ion-header class="header">
+  <ion-navbar class="navheader">
+    <ion-title class="titulo">MedicalAssistant</ion-title>
+    <img src="assets/imgs/fotoperfil.jpg" class="fotopaciente">
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="cuerpo">
+
+  <h2 class="historial">Historial del paciente XXX</h2>
+
+  <ion-card class="peticion">
+    <div class="contExtra">
+      <p class="historialpeticion" (click)=peticioninfo1()>Petición 01/01/2008</p>
+      <ion-icon name="arrow-forward" class="flechapeticion"></ion-icon>
+    </div>
+    <p id="p1" class="cuepopeticion">Me duele la tripa y tengo nauseas cada vez que me levanto de la cama</p>     
+  </ion-card>
+
+  <ion-card class="peticion">
+    <div class="contExtra">
+      <p class="historialpeticion" (click)=peticioninfo2()>Petición 15/03/2016</p>
+      <ion-icon name="arrow-forward" class="flechapeticion"></ion-icon>
+    </div>
+      <p id="p2" class="cuepopeticion">Estoy recien operado del brazo y la cicatriz se se está poniendo de color rojizo</p>     
+    </ion-card>
+
+    <ion-card class="peticion">
+      <div class="contExtra">
+        <p class="historialpeticion" (click)=peticioninfo3()>Petición 26/10/2017</p>
+        <ion-icon name="arrow-forward" class="flechapeticion"></ion-icon>
+      </div>
+        <p id="p3" class="cuepopeticion">Tengo cosas vlancas en la garganta y el ibuprofeno no me está haciendo nada</p>     
+    </ion-card>
+
+  
 
 </ion-content>

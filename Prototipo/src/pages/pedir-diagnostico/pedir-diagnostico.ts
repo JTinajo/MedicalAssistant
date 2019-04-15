@@ -22,4 +22,14 @@ export class PedirDiagnosticoPage {
     console.log('ionViewDidLoad PedirDiagnosticoPage');
   }
 
+
+  enviarPeticion(){
+
+  }
+
+  cancelar(){
+
+  
+  }
+
 }

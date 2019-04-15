@@ -7,6 +7,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { ContestarPeticionPage } from '../pages/contestar-peticion/contestar-peticion';
+import { DetallesPeticionPage } from '../pages/detalles-peticion/detalles-peticion';
+import { HistorialPage } from '../pages/historial/historial';
+import { MenuDoctorPage } from '../pages/menu-doctor/menu-doctor';
+import { MenuPacientePage } from '../pages/menu-paciente/menu-paciente';
+import { PedirDiagnosticoPage } from '../pages/pedir-diagnostico/pedir-diagnostico';
+import { PeticionesPage } from '../pages/peticiones/peticiones';
+import { RegistroPage } from '../pages/registro/registro';
+import { VerDiagnosticoPage } from '../pages/ver-diagnostico/ver-diagnostico';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -22,17 +31,33 @@ export const fireBaseConfig={
 }
 
 export class Paciente {
-  idConsulta: Number;
+  idPaciente: Number;
   nombre: string;
+  edad: number;
   peticion: string;
   valor: Number;
 }
 
 export class Doctor {
-  idConsulta: Number;
+  idDoctor: Number;
   nombre: string;
   respuesta: string;
   valor: Number;
+}
+
+export class Consulta {
+  
+  sintomas:string[];
+  fecha_sintomas:Date;
+  automedica?:boolean;
+  medicamentos_paciente?:string[];
+  descripcion:string;
+  
+  respuesta?:string;
+  meicamente_doctor?:string[];
+  idConsulta?:number;  
+  idPaciente?:number;
+  idDoctor?:number;
 }
 
 
@@ -40,7 +65,16 @@ export class Doctor {
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    ContestarPeticionPage,
+    DetallesPeticionPage,
+    HistorialPage,
+    MenuDoctorPage,
+    MenuPacientePage,
+    PedirDiagnosticoPage, 
+    PeticionesPage,
+    RegistroPage,
+    VerDiagnosticoPage 
   ],
   imports: [
     BrowserModule,
@@ -52,7 +86,16 @@ export class Doctor {
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    ContestarPeticionPage,
+    DetallesPeticionPage,
+    HistorialPage,
+    MenuDoctorPage,
+    MenuPacientePage,
+    PedirDiagnosticoPage, 
+    PeticionesPage,
+    RegistroPage,
+    VerDiagnosticoPage 
   ],
   providers: [
     StatusBar,

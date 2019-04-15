@@ -1,7 +1,7 @@
 //import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase} from 'angularfire2/database';
-import { Paciente, Doctor } from '../../app/app.module';
+import { Paciente, Doctor, Consulta } from '../../app/app.module';
 
 
 
@@ -30,9 +30,11 @@ export class FirebaseDbProvider {
   */
 
    // Usar save para crear o modificar un paciente
-	 savePatientPetition(pac:Paciente)
+	 savePatientPetition(pac:Paciente,pet:Consulta)
 	 {		
-		 this.afDB.database.ref('paciente/'+pac.nombre).set(pac);
+     this.afDB.database.ref('paciente/'+pac.nombre).set(pac);
+     
+     
 		
    } 
    
@@ -57,5 +59,7 @@ export class FirebaseDbProvider {
      return this.doctorDiagnostico.valueChanges();
 
    }
+
+   
 
 }
