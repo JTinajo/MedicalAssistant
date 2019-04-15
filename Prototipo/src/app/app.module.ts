@@ -32,13 +32,13 @@ export const fireBaseConfig={
 }
 
 export class Paciente {
-  idPaciente: Number;
+  idPaciente?: string;
   nombre: string;
   edad: number;
 }
 
 export class Doctor {
-  idDoctor: Number;
+  idDoctor?: string;
   nombre: string;
   edad:number;
 }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MenuPacientePage } from '../menu-paciente/menu-paciente';
+
 
 /**
  * Generated class for the RegistroPage page.
@@ -20,6 +22,14 @@ export class RegistroPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegistroPage');
+  }
+
+  IniciarSesion(){
+    this.navCtrl.push(MenuPacientePage);
+  }
+
+  Cancelar(){
+    this.navCtrl.popToRoot();
   }
 
 }

@@ -32,9 +32,16 @@ export class FirebaseDbProvider {
 
    // crea o modifica datos de un paciente
 	 savePatient(pac:Paciente)
+	 {		    
+    let key = this.afDB.database.ref('paciente/'+pac.nombre).push(pac).key;	
+    pac.idPaciente = key;
+    this.updatePatient(pac);
+   }
+   
+   updatePatient(pac:Paciente)
 	 {		
-        this.afDB.database.ref('paciente/'+pac.nombre).set(pac);	
-   } 
+    this.afDB.database.ref('paciente/'+pac.nombre).set(pac);	
+   }
    
 
    //Carga listado de pacientes
@@ -44,7 +51,7 @@ export class FirebaseDbProvider {
 
    
    // carga paciente con id = idPaciente
-   loadPatientsId(idPaciente:number):Observable<Paciente[]>{
+   loadPatientsId(idPaciente:string):Observable<Paciente[]>{
     return this.afDB.list<Paciente>('/paciente/'+idPaciente+"/").valueChanges();     
   }
 
