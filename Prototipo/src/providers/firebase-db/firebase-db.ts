@@ -86,11 +86,39 @@ export class FirebaseDbProvider {
    }
 
 
-   // TODO CONSULTAS
+   
    /**
     * 
     * Consultas
     * 
     */
+
+
+       // crea una consulta de un paciente
+	 saveConsult(con:Consulta)
+	 {		 
+    this.afDB.database.ref('/consulta/'+con.idPaciente).set(con);	
+    
+   }
+    
+   // modifica una consulta para añadir los datos del medico
+   updateConsulta(idDoc:string, con:Consulta)
+	 {		
+     con.idDoctor= idDoc;
+    this.afDB.database.ref('/consulta/'+con.idPaciente).set(con);	
+   }
+   
+
+   //Carga listado de pacientes
+   loadConsults():Observable<Consulta[]>{
+     return this.consultas.valueChanges();     
+   }
+
+   
+   // carga consultas de un paciente con id = idPaciente
+   loadConsultsById(idPaciente:string):Observable<Paciente[]>{
+    return this.afDB.list<Paciente>('/consulta/'+idPaciente+"/").valueChanges();     
+  }
+
 
 }

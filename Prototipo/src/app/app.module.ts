@@ -53,7 +53,7 @@ export class Doctor {
 }
 
 export class Consulta {
-  
+  edad:number;
   sintomas:string[];
   fecha_sintomas:Date;
   automedica?:boolean;
@@ -62,9 +62,9 @@ export class Consulta {
   
   respuesta?:string;
   medicamentos_doctor?:string[];
-  idConsulta?:number;  
-  idPaciente?:number;
-  idDoctor?:number;
+  idConsulta?:string;  
+  idPaciente?:string;
+  idDoctor?:string;
 }
 
 
