@@ -54,6 +54,7 @@ export class Doctor {
 
 export class Consulta {
   edad:number;
+  fecha_consulta:String;
   sintomas:string[];
   fecha_sintomas:Date;
   automedica?:boolean;

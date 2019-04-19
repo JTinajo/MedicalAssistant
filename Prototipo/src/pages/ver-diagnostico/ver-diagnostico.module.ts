@@ -10,4 +10,9 @@ import { VerDiagnosticoPage } from './ver-diagnostico';
     IonicPageModule.forChild(VerDiagnosticoPage),
   ],
 })
-export class VerDiagnosticoPageModule {}
+export class VerDiagnosticoPageModule {
+
+
+
+
+}

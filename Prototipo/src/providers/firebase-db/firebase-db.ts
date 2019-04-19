@@ -18,7 +18,7 @@ export class FirebaseDbProvider {
 
   private pacientePeticion=this.afDB.list<Paciente>('/paciente/');
   private doctorDiagnostico=this.afDB.list<Doctor>('/doctor/');
-  private consultas =  this.afDB.list<Consulta>('/consultas/');
+  private consultas =  this.afDB.list<Consulta>('/consulta/');
 
 
     
@@ -97,15 +97,20 @@ export class FirebaseDbProvider {
        // crea una consulta de un paciente
 	 saveConsult(con:Consulta)
 	 {		 
-    this.afDB.database.ref('/consulta/'+con.idPaciente).set(con);	
+    let key =this.afDB.database.ref('/consulta/'+con.idPaciente+"/").push(con).key;	
+     
+    con.idConsulta = key;
+    this.afDB.database.ref('/consulta/'+con.idPaciente+"/"+con.idConsulta+"/").set(con);
     
    }
     
-   // modifica una consulta para añadir los datos del medico
+   // modifica una consulta para añadir los datos del medico y los añade al historial del paciente
    updateConsulta(idDoc:string, con:Consulta)
 	 {		
-     con.idDoctor= idDoc;
-    this.afDB.database.ref('/consulta/'+con.idPaciente).set(con);	
+    con.idDoctor= idDoc;
+    this.afDB.database.ref('/consulta/'+con.idPaciente).remove();
+    this.afDB.database.ref('/historial/'+con.idPaciente).set(con);	
+
    }
    
 
@@ -116,8 +121,8 @@ export class FirebaseDbProvider {
 
    
    // carga consultas de un paciente con id = idPaciente
-   loadConsultsById(idPaciente:string):Observable<Paciente[]>{
-    return this.afDB.list<Paciente>('/consulta/'+idPaciente+"/").valueChanges();     
+   loadConsultsByIdPaciente(idPaciente:string):Observable<Consulta[]>{
+    return this.afDB.list<Consulta>('/consulta/'+idPaciente+"/").valueChanges();     
   }
 
 

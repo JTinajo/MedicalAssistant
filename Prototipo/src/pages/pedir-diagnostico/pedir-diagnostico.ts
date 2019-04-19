@@ -26,8 +26,11 @@ export class PedirDiagnosticoPage {
   medicamentos_paciente?:string[];
   descripcion:string;
 
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public dbF:FirebaseDbProvider) {
     this.idPaciente="pepito de momento";
+    
+    
   }
 
   ionViewDidLoad() {
@@ -41,9 +44,13 @@ export class PedirDiagnosticoPage {
 
   enviarPeticion(){
     this.consulta = new Consulta();
+    
+    this.consulta.fecha_consulta = new Date().toISOString().substr(0,10);;
+
     this.consulta.edad= this.edad;
     this.consulta.sintomas=this.sintomas;
     this.consulta.fecha_sintomas=this.fecha_sintomas;
+    
     this.consulta.automedica=this.automedica;
     this.consulta.medicamentos_paciente=this.medicamentos_paciente;
     this.consulta.descripcion=this.descripcion;
@@ -59,7 +66,7 @@ export class PedirDiagnosticoPage {
 
   // prueba de seleccion de datos
   seleccion(){
-    console.log(this.sintomas); 
+    //console.log(this.sintomas); 
   }
 
 }

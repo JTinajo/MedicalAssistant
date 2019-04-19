@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
+
+
 
 /**
  * Generated class for the VerDiagnosticoPage page.
@@ -15,11 +18,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class VerDiagnosticoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  idPaciente:string;
+
+  historial:any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dbF:FirebaseDbProvider) {
+    this.idPaciente = "pepito de momento";
+    this.dbF.loadConsultsByIdPaciente(this.idPaciente).subscribe(
+      res=>{
+        this.historial= res;
+        console.log(res);
+    });
+    
+   
+    
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad VerDiagnosticoPage');
+    console.log('ionViewDidLoad VerDiagnosticoPage');   
   }
 
   public clicks1 = 0;
@@ -27,6 +43,7 @@ export class VerDiagnosticoPage {
   public clicks3 = 0;
   
   peticioninfo1(){
+    console.log(this.historial);
     
     if(this.clicks1==0){
       document.getElementById("p1").style.display = "inline";
