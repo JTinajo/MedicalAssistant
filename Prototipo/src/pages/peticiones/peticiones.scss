@@ -1,3 +1,51 @@
 page-peticiones {
+    .navheader{
+        height: 67px;
+    }
+    .toolbar-title-ios{
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: rgb(6, 20, 212);
+        pointer-events: auto;
+    }
+    .peticion{
+        margin-bottom: 5%;
+    }
+    .contExtra{
+        display: flex;
+    }
+    .fotopaciente{
+        width: 50px;
+        position: absolute;
+        top: 15%;
+        right: 5px;
+    }
+    .historial{
+        font-size: 1.4rem;
+        color: rgb(6, 20, 212);
+        margin-bottom: 5%;
+        padding-top: 10%;
+    }
+    .historialpeticion{
+        color: black;
+        font-size: 1.3rem;
+        width: 100%;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5% 3%;
+    }
+    .flechapeticion{
+        float: right;
+        margin: auto;
+        cursor: pointer;
+        padding: 10px;
+    }
+    .cuerpopeticion{
+        display: none;
+        font-size: 1.3rem;
+        width: 80%;
+        text-align: justify;
+    }
 
 }

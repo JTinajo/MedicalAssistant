@@ -17,7 +17,9 @@ import { PedirDiagnosticoPage } from '../pedir-diagnostico/pedir-diagnostico';
 })
 export class MenuPacientePage {
   usuario : string;
+  idPaciente:string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.idPaciente = navParams.get('id');
     this.usuario=navParams.get('usuario');
   }
 
@@ -28,13 +30,13 @@ export class MenuPacientePage {
 
   VerDiagnostico(){
     this.navCtrl.push(VerDiagnosticoPage,{
-      id:this.usuario,
+      id:this.idPaciente,
       usuario:this.usuario
       });
   }
   PedirDiagnostico(){
     this.navCtrl.push(PedirDiagnosticoPage,{
-      id:this.usuario,
+      id:this.idPaciente,
       usuario:this.usuario
       });
   }

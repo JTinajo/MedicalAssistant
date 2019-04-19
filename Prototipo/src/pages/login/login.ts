@@ -19,9 +19,11 @@ import { RegistroPage } from '../registro/registro';
 export class LoginPage {
   doctor : boolean;
   usuario:string;
+  user:string;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.doctor=false;
+    this.user="";
     
   }
 
@@ -33,15 +35,15 @@ export class LoginPage {
     this.navCtrl.push(RegistroPage);   
  }
 
-  irMenu(usuario:string):void{
+  irMenu():void{
     // cargar datos y verificar
-    
+    console.log(this.user)    ;
     
     //TODO revisar si es medico o doctor
-     this.doctor = (usuario == "pepe");
+     this.doctor = (this.user == "1");
 
 
-     this.usuario = usuario;
+     this.usuario = this.usuario;
      //pruebas
      this.usuario = "pepito de momento";
     if(this.doctor){

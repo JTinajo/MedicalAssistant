@@ -14,8 +14,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'menu-doctor.html',
 })
 export class MenuDoctorPage {
+  idDoctor:string;
+  usuario:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.idDoctor = navParams.get('id');
+    this.usuario=navParams.get('usuario');
   }
 
   ionViewDidLoad() {

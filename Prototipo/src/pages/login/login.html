@@ -24,8 +24,8 @@
       <div>
         <ion-item>
           <ion-icon class="icono" name="person" item-start></ion-icon>
-          <ion-label class="campoLog" stacked>Usuario:</ion-label>
-          <ion-input class="inputLog" type="text" placeholder="Usuario"></ion-input>
+          <ion-label class="campoLog"   stacked>Usuario:</ion-label>
+          <ion-input class="inputLog" [(ngModel)]="user"  [ngModelOptions]="{standalone: true}"type="text" placeholder="Usuario"></ion-input>
         </ion-item>
       </div>
       <div>
@@ -40,7 +40,7 @@
 
   <div class="contenedorBotones">
     <button class="botones" small ion-button (click)="irRegistro()">Registrarse</button>
-    <button class="botones" small color="secondary" ion-button (click)="irMenu('pepe1')">Iniciar Sesión</button>
+    <button class="botones" small color="secondary" ion-button (click)="irMenu()">Iniciar Sesión</button>
   </div>
 
 </ion-content>
