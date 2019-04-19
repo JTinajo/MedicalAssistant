@@ -16,8 +16,9 @@ import { PedirDiagnosticoPage } from '../pedir-diagnostico/pedir-diagnostico';
   templateUrl: 'menu-paciente.html',
 })
 export class MenuPacientePage {
-
+  usuario : string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.usuario=navParams.get('usuario');
   }
 
   ionViewDidLoad() {
@@ -26,9 +27,15 @@ export class MenuPacientePage {
 
 
   VerDiagnostico(){
-    this.navCtrl.push(VerDiagnosticoPage);
+    this.navCtrl.push(VerDiagnosticoPage,{
+      id:this.usuario,
+      usuario:this.usuario
+      });
   }
   PedirDiagnostico(){
-    this.navCtrl.push(PedirDiagnosticoPage);
+    this.navCtrl.push(PedirDiagnosticoPage,{
+      id:this.usuario,
+      usuario:this.usuario
+      });
   }
 }

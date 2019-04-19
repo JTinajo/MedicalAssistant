@@ -19,11 +19,13 @@ import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 export class VerDiagnosticoPage {
 
   idPaciente:string;
-
+  nombrePaciente:string;
+  anterior:string;
   historial:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbF:FirebaseDbProvider) {
-    this.idPaciente = "pepito de momento";
+    this.idPaciente = navParams.get('id');
+    this.nombrePaciente= navParams.get('usuario');
     this.dbF.loadConsultsByIdPaciente(this.idPaciente).subscribe(
       res=>{
         this.historial= res;
@@ -42,59 +44,20 @@ export class VerDiagnosticoPage {
   public clicks2 = 0;
   public clicks3 = 0;
   
-  peticioninfo1(){
-    console.log(this.historial);
+  peticioninfo(id:string){
     
-    if(this.clicks1==0){
-      document.getElementById("p1").style.display = "inline";
-      document.getElementById("p2").style.display = "none";
-      document.getElementById("p3").style.display = "none";
-      this.clicks1=1;
-      this.clicks2=0;
-      this.clicks3=0;
-    }else{
-      document.getElementById("p1").style.display = "none";
-      document.getElementById("p2").style.display = "none";
-      document.getElementById("p3").style.display = "none";
-      this.clicks1=0;
+    if(this.anterior!=undefined){
+      document.getElementById(this.anterior).style.display = "none";
+    }
+    if (this.anterior!=id){
+    document.getElementById(id).style.display = "inline";
+    this.anterior=id;
+    }else {
+      this.anterior=undefined;
     }
     
   }
 
-  peticioninfo2(){
-    
-    if(this.clicks2==0){
-      document.getElementById("p1").style.display = "none";
-      document.getElementById("p2").style.display = "inline";
-      document.getElementById("p3").style.display = "none";
-      this.clicks2=1;
-      this.clicks3=0;
-      this.clicks1=0;
-    }else{
-      document.getElementById("p1").style.display = "none";
-      document.getElementById("p2").style.display = "none";
-      document.getElementById("p3").style.display = "none";
-      this.clicks2=0;
-    }
-    
-  }
-
-  peticioninfo3(){
-    
-    if(this.clicks3==0){
-      document.getElementById("p1").style.display = "none";
-      document.getElementById("p2").style.display = "none";
-      document.getElementById("p3").style.display = "inline";
-      this.clicks3=1;
-      this.clicks2=0;
-      this.clicks1=0;
-    }else{
-      document.getElementById("p1").style.display = "none";
-      document.getElementById("p2").style.display = "none";
-      document.getElementById("p3").style.display = "none";
-      this.clicks3=0;
-    }
-    
-  }
+  
 
 }

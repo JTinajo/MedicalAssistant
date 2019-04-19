@@ -18,9 +18,11 @@ import { RegistroPage } from '../registro/registro';
 })
 export class LoginPage {
   doctor : boolean;
+  usuario:string;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.doctor=false;
+    
   }
 
   ionViewDidLoad() {
@@ -32,13 +34,27 @@ export class LoginPage {
  }
 
   irMenu(usuario:string):void{
+    // cargar datos y verificar
+    
+    
     //TODO revisar si es medico o doctor
      this.doctor = (usuario == "pepe");
+
+
+     this.usuario = usuario;
+     //pruebas
+     this.usuario = "pepito de momento";
     if(this.doctor){
-      this.navCtrl.push(MenuDoctorPage);
+      this.navCtrl.push(MenuDoctorPage,{
+        id:this.usuario,
+        usuario:this.usuario
+        });
     }
     else {
-      this.navCtrl.push(MenuPacientePage);
+      this.navCtrl.push(MenuPacientePage,{
+        id:this.usuario,
+        usuario:this.usuario
+        });
     }
   }
 

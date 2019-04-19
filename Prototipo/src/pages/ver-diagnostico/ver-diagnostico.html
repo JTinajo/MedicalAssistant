@@ -13,17 +13,17 @@
 
 <ion-content padding class="cuerpo">
 
-  <h2 class="historial">Historial del paciente {{idPaciente}}</h2>
+  <h2 class="historial">Historial del paciente {{nombrePaciente}}</h2>
 
   <ion-card *ngFor="let his of historial" class="peticion">
     <div class="contExtra">
-      <p class="historialpeticion" (click)=peticioninfo1()>Petición {{his.fecha_consulta}}</p>
+      <p class="historialpeticion" (click)=peticioninfo(his.idConsulta)>Petición {{his.fecha_consulta}}</p>
       <ion-icon name="arrow-forward" class="flechapeticion"></ion-icon>
     </div>
-    <p id="p1" class="cuepopeticion">{{his.descripcion}}</p>     
+    <p id={{his.idConsulta}} class="cuepopeticion">{{his.descripcion}}</p>     
   </ion-card>
 
-  
+
 
   
 
