@@ -26,9 +26,11 @@ export class PedirDiagnosticoPage {
   medicamentos_paciente?:string[];
   descripcion:string;
 
+  nombrePaciente:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public dbF:FirebaseDbProvider) {
-    this.idPaciente="pepito de momento";
+    this.idPaciente = navParams.get('id');
+    this.nombrePaciente= navParams.get('usuario');
     
     
   }
@@ -43,30 +45,40 @@ export class PedirDiagnosticoPage {
 
 
   enviarPeticion(){
-    this.consulta = new Consulta();
-    
-    this.consulta.fecha_consulta = new Date().toISOString().substr(0,10);;
 
-    this.consulta.edad= this.edad;
-    this.consulta.sintomas=this.sintomas;
-    this.consulta.fecha_sintomas=this.fecha_sintomas;
-    
-    this.consulta.automedica=this.automedica;
-    this.consulta.medicamentos_paciente=this.medicamentos_paciente;
-    this.consulta.descripcion=this.descripcion;
-    this.consulta.idPaciente= this.idPaciente;
-    this.consulta.idConsulta= this.idPaciente;
-    this.dbF.saveConsult(this.consulta);
+    if (this.edad ==undefined ||
+      this.sintomas ==undefined ||
+      this.fecha_sintomas ==undefined ||
+      this.automedica ==undefined ||     
+      this.descripcion ==undefined
+      )
+      {
+        alert("rellene los campos")
+      }
+    else{
+
+    if( this.medicamentos_paciente ==undefined ){
+       this.medicamentos_paciente=["nada"];
+      }
+      this.consulta = new Consulta();    
+      this.consulta.fecha_consulta = new Date().toISOString().substr(0,10);;
+      this.consulta.edad= this.edad;
+      this.consulta.sintomas=this.sintomas;
+      this.consulta.fecha_sintomas=this.fecha_sintomas;    
+      this.consulta.automedica=this.automedica;
+      this.consulta.medicamentos_paciente=this.medicamentos_paciente;
+      this.consulta.descripcion=this.descripcion;
+      this.consulta.idPaciente= this.idPaciente;
+      
+      this.dbF.saveConsult(this.consulta);
+      this.cancelar();
+    }
   }
 
+  // cancelar vuelve atras
   cancelar(){
-
+    this.navCtrl.removeView(this.navCtrl.last());
   
-  }
-
-  // prueba de seleccion de datos
-  seleccion(){
-    //console.log(this.sintomas); 
   }
 
 }

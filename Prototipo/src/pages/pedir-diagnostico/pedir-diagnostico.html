@@ -27,7 +27,7 @@
 
       <ion-item>
           <ion-label>Síntomas</ion-label>
-          <ion-select [(ngModel)]="sintomas"  [ngModelOptions]="{standalone: true}" (ionChange)="seleccion()" class="diag" multiple="true" cancelText="Cancelar" okText="OK" placeholder="Seleccione varios">
+          <ion-select [(ngModel)]="sintomas"  [ngModelOptions]="{standalone: true}" class="diag" multiple="true" cancelText="Cancelar" okText="OK" placeholder="Seleccione varios">
             <ion-option value="fiebre">Fiebre</ion-option>
             <ion-option value="nauseas">Náuseas</ion-option>
             <ion-option value="vomitos">Vómitos</ion-option>

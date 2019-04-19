@@ -40,9 +40,6 @@ export class VerDiagnosticoPage {
     console.log('ionViewDidLoad VerDiagnosticoPage');   
   }
 
-  public clicks1 = 0;
-  public clicks2 = 0;
-  public clicks3 = 0;
   
   peticioninfo(id:string){
     
