@@ -1,30 +1,37 @@
-<!--
-  Generated template for the MenuDoctorPage page.
+page-menu-doctor {
+  .navheader {
+    height: 67px;
+  }
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header class="header">
-  <ion-navbar class="navheader" hideBackButton>
-    <ion-title class="titulo">MedicalAssistant</ion-title>
-    <img src="assets/imgs/fotoperfil.jpg" class="fotodoctor">
-  </ion-navbar>
-</ion-header>
+  .toolbar-title-ios {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(6, 20, 212);
+    pointer-events: auto;
+  }
 
-<ion-content padding class="cuerpo">
+  .fotodoctor {
+    width: 50px;
+    position: absolute;
+    top: 15%;
+    right: 5px;
+  }
 
-  <h2 id="historial">Buenos dias Dr Doctor</h2>
+  #historial {
+    font-size: 1.4rem;
+    color: rgb(6, 20, 212);
+    margin: 8% 0;
+  }
 
-  <div id="ContenedorBotones">
-    <button ion-button round full class="botones" (click)="VerPeticiones()">Peticiones diagnostico nuevas</button>
-    <button ion-button round full class="botones" (click)="VerHistorial()">Historial por paciente</button>
+  #ContenedorBotones {
+    margin-top: 2%;
+  }
 
-  </div>
+  .botones {
+    margin-bottom: 5%;
+  }
 
-  <h2 id="historial">Colegiado: nº XXXXXXX</h2>
-  <h2 id="historial">Hospital: XXXXX</h2>
+ 
+}
 
-
-
-
-</ion-content>
