@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PeticionesPage } from '../peticiones/peticiones';
+import { HistorialPage } from '../historial/historial';
 
 /**
  * Generated class for the MenuDoctorPage page.
@@ -24,6 +26,20 @@ export class MenuDoctorPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuDoctorPage');
+  }
+
+
+  VerPeticiones() {
+    this.navCtrl.push(PeticionesPage, {
+      id: this.idDoctor,
+      usuario: this.usuario
+    });
+  }
+  VerHistorial() {
+    this.navCtrl.push(HistorialPage, {
+      id: this.idDoctor,
+      usuario: this.usuario
+    });
   }
 
 }
