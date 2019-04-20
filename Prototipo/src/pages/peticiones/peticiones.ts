@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
+import { Consulta } from '../../app/app.module';
+import { ContestarPeticionPage } from '../contestar-peticion/contestar-peticion';
 
 /**
  * Generated class for the PeticionesPage page.
@@ -18,23 +20,34 @@ export class PeticionesPage {
   idDoctor:string;
   usuario:string;
   anterior:string;
-  historial:any;
+  historial:Consulta[];
+  pacHistorial:Consulta[]=[];
+  keys;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbF:FirebaseDbProvider) {
     this.idDoctor = navParams.get('id');
     this.usuario=navParams.get('usuario');
     this.dbF.loadConsults().subscribe(
       res=>{
-        this.historial= res;
-        console.log(res);
+        this.historial = res;            
+        this.keys = Object.keys(this.historial[0]);
+        this.pacHistorial=[];
+        this.keys.forEach(element => {
+          this.pacHistorial.push(this.historial[0][element]);
+          console.log(element);
+        });
     });
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PeticionesPage');
   }
 
-
+  /**
+   * 
+   * @param id del elemento a mostrar rapido
+   */
   peticioninfo(id:string){
     
     if(this.anterior!=undefined){
@@ -47,5 +60,22 @@ export class PeticionesPage {
       this.anterior=undefined;
     }
     
+  }
+
+  /**
+   *  Navegar a responder peticion, se envia los datos necesarios para sacar la peticion de firebase
+   * @param idConsulta id con la consulta a responder
+   * @param idPaciente id del paciente que hizo la consulta
+   */
+  entrarPeticion(idConsulta:string,idPaciente:string){
+    
+    this.navCtrl.push(ContestarPeticionPage, {
+      id: this.idDoctor,
+      usuario: this.usuario,
+      idConsulta : idConsulta,
+      idPaciente: idPaciente
+    });
+    
+
   }
 }

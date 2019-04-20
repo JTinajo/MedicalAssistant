@@ -22,25 +22,10 @@ export class HomePage {
   
   navegar(): void {
     this.navCtrl.setRoot(LoginPage);
-   console.log("navegando!!!")
  }
   
 
- ionViewWillEnter(){
-
-   this.dbF.loadPatientsId("pepe").subscribe(res=>{
-    console.log(res);
-    this.myPerson = res;
-    });
-
-
-  /*const personRef: firebase.database.Reference = firebase.database().ref('/paciente/');
-  personRef.on('value', personSnapshot => {
-    this.myPerson = personSnapshot.val();
-    
-  });*/
-  //console.log(this.myPerson);
-}
+ ionViewWillEnter(){}
 
 
 }

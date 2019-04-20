@@ -120,9 +120,10 @@ export class FirebaseDbProvider {
    }
 
    
-   // carga consultas de un paciente con id = idPaciente
-   loadConsultsByIdPaciente(idPaciente:string):Observable<Consulta[]>{
-    return this.afDB.list<Consulta>('/consulta/'+idPaciente+"/").valueChanges();     
+   // carga consultas de un paciente con idPaciente e idConsulta
+   loadConsultsByIdConsultaPatient(idPaciente:string,idConsulta:string):Observable<Consulta[]>{
+     console.log("BUSCANDO EN = "+'/consulta/'+idPaciente+"/"+idConsulta+"/");
+    return this.afDB.list<Consulta>('/consulta/'+idPaciente+"/"+idConsulta+"/").valueChanges();     
   }
 
 
