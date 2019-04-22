@@ -25,7 +25,7 @@ export class RegistroPage {
   email:string;
   NSS: number;
   fechaNac: Date;
-
+  hospital: string;
   paciente: Paciente;
   doctor: Doctor;
   tipo:boolean;
@@ -69,7 +69,8 @@ export class RegistroPage {
         this.doctor.tlf=this.tlf;
         this.doctor.email=this.email;
         this.doctor.NSS=this.NSS;
-        this.doctor.fechaNac=this.fechaNac;
+        this.doctor.fechaNac = this.fechaNac;
+        this.doctor.hospital = this.hospital
 
         this.dbF.saveDoctoc(this.doctor);
       }
