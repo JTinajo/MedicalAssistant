@@ -61,6 +61,7 @@ export class PedirDiagnosticoPage {
        this.medicamentos_paciente=["nada"];
       }
       this.consulta = new Consulta();    
+      this.consulta.paciente=this.nombrePaciente;
       this.consulta.fecha_consulta = new Date().toISOString().substr(0,10);;
       this.consulta.edad= this.edad;
       this.consulta.sintomas=this.sintomas;

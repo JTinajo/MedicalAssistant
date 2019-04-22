@@ -64,6 +64,9 @@ export class Consulta {
   medicamentos_paciente?:string[];
   descripcion:string;
   
+  paciente:string;
+  doctor?:string;
+
   respuesta?:string;
   medicamentos_doctor?:string[];
   idConsulta?:string;  
