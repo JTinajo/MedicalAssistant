@@ -18,46 +18,49 @@
         <ion-item>
           <ion-icon class="icono" name="person" item-start></ion-icon>
           <ion-label class="campoReg" stacked>Usuario:</ion-label>
-          <ion-input class="inputReg" type="text" placeholder="Usuario" required [(ngModel)]="usuario"  [ngModelOptions]="{standalone: true}"></ion-input>
+          <ion-input class="inputReg" type="text" placeholder="Usuario" required [(ngModel)]="usuario" [ngModelOptions]="{standalone: true}"></ion-input>
         </ion-item>
       </div>
       <div>
         <ion-item>
           <ion-icon class="icono" name="eye" item-start></ion-icon>
           <ion-label class="campoReg" stacked>Contraseña:</ion-label>
-          <ion-input class="inputReg" type="password" placeholder="Contraseña" required [(ngModel)]="pass"  [ngModelOptions]="{standalone: true}"
-          ></ion-input>
+          <ion-input class="inputReg" type="password" placeholder="Contraseña" required [(ngModel)]="pass" [ngModelOptions]="{standalone: true}"></ion-input>
         </ion-item>
       </div>
       <div>
         <ion-item>
           <ion-icon class="icono" name="call" item-start></ion-icon>
           <ion-label class="campoReg" stacked>Teléfono:</ion-label>
-          <ion-input class="inputReg" type="tel" placeholder="Teléfono" required [(ngModel)]="tlf"  [ngModelOptions]="{standalone: true}"
-          ></ion-input>
+          <ion-input class="inputReg" type="tel" placeholder="Teléfono" required [(ngModel)]="tlf" [ngModelOptions]="{standalone: true}"></ion-input>
         </ion-item>
       </div>
       <div>
         <ion-item>
           <ion-icon class="icono" name="mail" item-start></ion-icon>
           <ion-label class="campoReg" stacked>Email:</ion-label>
-          <ion-input class="inputReg" type="email" placeholder="Email" required [(ngModel)]="email"  [ngModelOptions]="{standalone: true}"
-          ></ion-input>
+          <ion-input class="inputReg" type="email" placeholder="Email" required [(ngModel)]="email" [ngModelOptions]="{standalone: true}"></ion-input>
         </ion-item>
       </div>
       <div>
         <ion-item>
           <ion-icon class="icono" name="medical" item-start></ion-icon>
           <ion-label class="campoReg" stacked>Número Seguridad Social:</ion-label>
-          <ion-input class="inputReg" type="text" placeholder="Número Seguridad Social" required [(ngModel)]="NSS"  [ngModelOptions]="{standalone: true}"
-          ></ion-input>
+          <ion-input class="inputReg" type="text" placeholder="Número Seguridad Social" required [(ngModel)]="NSS" [ngModelOptions]="{standalone: true}"></ion-input>
         </ion-item>
       </div>
       <div>
         <ion-item>
           <ion-icon class="icono" name="calendar" item-start></ion-icon>
           <ion-label class="campoReg" stacked>Fecha de nacimiento:</ion-label>
-          <ion-datetime class="inputReg" display-format="DD/MM/YYYY" placeholder="dd/mm/yyyy" [(ngModel)]="fechaNac"  [ngModelOptions]="{standalone: true}"></ion-datetime>
+          <ion-datetime class="inputReg" display-format="DD/MM/YYYY" placeholder="dd/mm/yyyy" [(ngModel)]="fechaNac" [ngModelOptions]="{standalone: true}"></ion-datetime>
+        </ion-item>
+      </div>
+      <div>
+        <ion-item>
+          <ion-icon class="icono" name="hospital" item-start></ion-icon>
+          <ion-label class="campoReg" stacked>Hospital:</ion-label>
+          <ion-input class="inputReg" type="text" placeholder="Nombre Hospital" required [(ngModel)]="hospital" [ngModelOptions]="{standalone: true}"></ion-input>
         </ion-item>
       </div>
     </ion-list>
