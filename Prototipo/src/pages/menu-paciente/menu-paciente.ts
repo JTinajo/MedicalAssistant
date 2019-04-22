@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VerDiagnosticoPage } from '../ver-diagnostico/ver-diagnostico';
 import { PedirDiagnosticoPage } from '../pedir-diagnostico/pedir-diagnostico';
+import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 
 /**
  * Generated class for the MenuPacientePage page.
@@ -18,9 +19,11 @@ import { PedirDiagnosticoPage } from '../pedir-diagnostico/pedir-diagnostico';
 export class MenuPacientePage {
   usuario : string;
   idPaciente:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  hospital: string;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dbF:FirebaseDbProvider) {
     this.idPaciente = navParams.get('id');
     this.usuario=navParams.get('usuario');
+    this.hospital=navParams.get('hospital');
   }
 
   ionViewDidLoad() {
