@@ -144,8 +144,8 @@ export class FirebaseDbProvider {
    
    // carga consultas respondidas de un paciente con idPaciente e idConsulta
    loadConsultsByIdConsultaPatient(idPaciente:string,idConsulta:string):Observable<Consulta[]>{
-     console.log("BUSCANDO EN = "+'/historial/'+idPaciente+"/"+idConsulta+"/");
-    return this.afDB.list<Consulta>('/historial/'+idPaciente+"/"+idConsulta+"/").valueChanges();     
+     console.log("BUSCANDO EN = "+'/consulta/'+idPaciente+"/"+idConsulta+"/");
+    return this.afDB.list<Consulta>('/consulta/'+idPaciente+"/"+idConsulta+"/").valueChanges();     
   }
 
 

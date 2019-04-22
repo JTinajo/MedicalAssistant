@@ -38,6 +38,7 @@ export class DetallesPeticionPage {
     this.idConsulta = navParams.get('idConsulta');
     this.dbF.loadConsultsByIdConsultaPatient(this.idPaciente, this.idConsulta).subscribe(res => {
       this.consulta = res; // se carga en consulta los datos de esta
+      console.log(res);
       this.fecha = this.consulta[3];
       this.fecha2 = this.consulta[4];
       this.sintomas = this.consulta[8];
