@@ -50,6 +50,7 @@ export class Doctor {
   email:string;
   NSS: number;
   fechaNac: Date;
+  hospital: string;
 }
 
 export class Consulta {
