@@ -63,19 +63,16 @@
           <ion-input class="inputReg" type="text" placeholder="Nombre Hospital" required [(ngModel)]="hospital" [ngModelOptions]="{standalone: true}"></ion-input>
         </ion-item>
       </div>
-    </ion-list>
-    <div id="doctor">
-      <ion-list>
-        <div>
-          <ion-item>
-            <ion-icon class="icono" name="afiliacion" item-start></ion-icon>
-            <ion-label class="campoReg" stacked>Hospital:</ion-label>
-            <ion-input class="inputReg" type="text" placeholder="Numero afiliación" required [(ngModel)]="afiliacion" [ngModelOptions]="{standalone: true}"></ion-input>
-          </ion-item>
-        </div>
-
-      </ion-list>
+    
+    <div>
+      <ion-item id="doctor">
+      <ion-icon class="icono" name="afiliacion" item-start></ion-icon>
+      <ion-label class="campoReg" stacked>Numero afiliacion:</ion-label>
+      <ion-input class="inputReg" type="text" placeholder="Numero afiliación" required [(ngModel)]="afiliacion" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
     </div>
+      </ion-list>
+    
     <div class="contenedorBotones">
       <button class="botones" small ion-button (click)="Cancelar()">Cancelar</button>
       <button class="botones" small color="secondary" ion-button (click)="IniciarSesion()" >Iniciar Sesión</button>

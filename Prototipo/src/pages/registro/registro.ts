@@ -46,8 +46,9 @@ export class RegistroPage {
       this.tlf == undefined ||
       this.email == undefined ||
       this.NSS == undefined ||
-      this.fechaNac == undefined ){
-      console.log("ALGO ESTA ROTO");
+      this.fechaNac == undefined ||
+      this.hospital == undefined){
+        alert("por favor, rellene todos los campos");
     }
     else {
       this.tipo= this.NSS %2==1;
@@ -56,6 +57,7 @@ export class RegistroPage {
         this.isDoctor=true;
         alert("se ha detectado que es usted doctor, añada su numero de afiliacion");
         document.getElementById('doctor').style.display = 'block';
+        document.getElementById('doctor').focus();
         return;
       }else if(this.tipo){
 
@@ -71,6 +73,7 @@ export class RegistroPage {
         this.paciente.email=this.email;
         this.paciente.NSS=this.NSS;
         this.paciente.fechaNac=this.fechaNac;
+        this.paciente.hospital= this.hospital;
 
 
         this.dbF.savePatient(this.paciente);
