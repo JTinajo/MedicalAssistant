@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 import { Consulta } from '../../app/app.module';
 import { ContestarPeticionPage } from '../contestar-peticion/contestar-peticion';
+import { DetallesPeticionPage } from '../detalles-peticion/detalles-peticion';
 
 /**
  * Generated class for the PeticionesPage page.
@@ -78,4 +79,20 @@ export class PeticionesPage {
     
 
   }
+
+
+  verPeticion(idConsulta: string, idPaciente: string) {
+
+    this.navCtrl.push(DetallesPeticionPage, {
+      id: this.idDoctor,
+      usuario: this.usuario,
+      idConsulta: idConsulta,
+      idPaciente: idPaciente
+    });
+
+
+  }
+
+
+
 }
