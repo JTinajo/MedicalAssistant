@@ -17,7 +17,7 @@
  
     <ion-card *ngFor="let his of pacHistorial" class="peticion">
       <div class="contExtra">
-        <p class="historialpeticion" (click)=peticioninfo(his.idConsulta)>Petición {{his.fecha_consulta}} - {{his.idPaciente}}</p>
+        <p class="historialpeticion" (click)=verPeticion(his.idConsulta,his.idPaciente)>Petición {{his.fecha_consulta}} - {{his.idPaciente}}</p>
         <ion-icon name="arrow-forward" class="flechapeticion" (click)=entrarPeticion(his.idConsulta,his.idPaciente)></ion-icon>
       </div>
       <p id={{his.idConsulta}} class="cuerpopeticion">{{his.descripcion}}</p>     
