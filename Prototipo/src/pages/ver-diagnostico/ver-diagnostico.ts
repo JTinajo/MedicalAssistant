@@ -26,7 +26,7 @@ export class VerDiagnosticoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbF:FirebaseDbProvider) {
     this.idPaciente = navParams.get('id');
     this.nombrePaciente= navParams.get('usuario');
-    this.dbF.loadConsultsByIdPaciente(this.idPaciente).subscribe(
+    this.dbF.loadRespondByIdPaciente(this.idPaciente).subscribe(
       res=>{
         this.historial= res;
         console.log(res);

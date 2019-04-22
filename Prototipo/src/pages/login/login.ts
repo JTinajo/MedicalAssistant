@@ -18,25 +18,18 @@ import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  doctor : boolean;
-  usuario:string;
-  user: string;
-  historial: any;
+  IdUsuario:string;
+  nombreUsuario:string;
   hospital: string;
+  afiliacion: string;
+
+  user: string;
+  
+  pass:string;
+  
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbF: FirebaseDbProvider) {
-    this.doctor = false;
-    this.user = "";
-    this.dbF.loadDoctorsId(this.user).subscribe(
-      res => {
-        this.hospital = res[0].hospital;
-        console.log(res);
-
-
-
-      })
-
-
+    
   }
 
   ionViewDidLoad() {
@@ -48,35 +41,60 @@ export class LoginPage {
  }
 
   irMenu():void{
-    // cargar datos y verificar
-    console.log(this.user)    ;
-    
-    //TODO revisar si es medico o doctor
-     this.doctor = (this.user == "1");
-
-   
+    if (this.user==undefined || this.pass== undefined){
+      alert("Por favor rellene el usuario y contraseña para loguearse");
+      return;
+    }
+    console.log("verificamos"+this.user+"//"+this.pass);
 
 
-     this.usuario = this.usuario;
-     //pruebas
-    this.usuario = "pepito de momento";
-    this.hospital = "arturo soria"
-    
-    if (this.doctor) {
+    // iniciamos verificacion 
+    this.esDoctor(this.user,this.pass);
+            
+  }
 
+  esDoctor(user:string,pass:string){    
+    this.dbF.loadDoctors().subscribe(
+      res => {
+        res.forEach(element => {
+          console.log(element.usuario + "//"+element.pass);
+          if(element.usuario== user && element.pass==pass){
+          
+             this.navCtrl.push(MenuDoctorPage,{
+              id:element.idDoctor,
+              usuario: element.usuario,
+              hospital:element.hospital,
+              afiliacion: element.afiliacion
+              });
+
+          }
+        });
+        // si llega aqui no es doctor, verificamos paciente
+        this.esPaciente(user,pass);
+      });
       
-      this.navCtrl.push(MenuDoctorPage,{
-        id:this.user,
-        usuario: this.usuario,
-        hospital: this.hospital
+  }
+
+  esPaciente(user:string,pass:string){
+    this.dbF.loadPatients().subscribe(            
+      res => {
+        res.forEach(element => {
+          console.log(element.usuario + "//"+element.pass);
+          if(element.usuario== user && element.pass==pass){
+                        
+             this.navCtrl.push(MenuPacientePage,{
+              id:element.idPaciente,
+              usuario: element.usuario,
+              hospital:element.hospital
+              
+              });
+          }
         });
-    }
-    else {
-      this.navCtrl.push(MenuPacientePage,{
-        id:this.usuario,
-        usuario:this.usuario
-        });
-    }
+        
+        this.IdUsuario="";
+        this.nombreUsuario="";
+    }); 
+
   }
 
 }

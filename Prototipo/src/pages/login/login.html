@@ -32,7 +32,7 @@
         <ion-item>
           <ion-icon class="icono" name="eye" item-start></ion-icon>
           <ion-label class="campoLog" stacked>Contraseña:</ion-label>
-          <ion-input class="inputLog" type="password" placeholder="Contraseña"></ion-input>
+          <ion-input class="inputLog"  [(ngModel)]="pass"  [ngModelOptions]="{standalone: true}" type="password" placeholder="Contraseña"></ion-input>
         </ion-item>
       </div>
     </ion-list>

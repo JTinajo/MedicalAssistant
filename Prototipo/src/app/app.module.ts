@@ -40,10 +40,12 @@ export class Paciente {
   email:string;
   NSS: number;
   fechaNac: Date;
+  hospital: string;
 }
 
 export class Doctor {
   idDoctor?: string;
+  afiliacion: string;
   usuario: string;
   pass: string;
   tlf: string;

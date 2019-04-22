@@ -26,9 +26,12 @@ export class RegistroPage {
   NSS: number;
   fechaNac: Date;
   hospital: string;
+  afiliacion:string="";
   paciente: Paciente;
   doctor: Doctor;
   tipo:boolean;
+
+  isDoctor:boolean=false;
   constructor(public navCtrl: NavController, public navParams: NavParams,public dbF:FirebaseDbProvider ) {
    
   }
@@ -47,6 +50,16 @@ export class RegistroPage {
       console.log("ALGO ESTA ROTO");
     }
     else {
+      this.tipo= this.NSS %2==1;
+
+      if (!this.isDoctor && !this.tipo){
+        this.isDoctor=true;
+        alert("se ha detectado que es usted doctor, añada su numero de afiliacion");
+        document.getElementById('doctor').style.display = 'block';
+        return;
+      }else if(this.tipo){
+
+      }
       this.tipo= this.NSS %2==1;
       console.log(this.tipo);
 
@@ -70,7 +83,9 @@ export class RegistroPage {
         this.doctor.email=this.email;
         this.doctor.NSS=this.NSS;
         this.doctor.fechaNac = this.fechaNac;
-        this.doctor.hospital = this.hospital
+        this.doctor.hospital = this.hospital;
+        this.doctor.afiliacion = this.afiliacion;
+
 
         this.dbF.saveDoctoc(this.doctor);
       }
