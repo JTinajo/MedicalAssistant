@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
-import { Consulta } from '../../app/app.module';
+import { Consulta, Paciente } from '../../app/app.module';
 import { ContestarPeticionPage } from '../contestar-peticion/contestar-peticion';
 import { DetallesPeticionPage } from '../detalles-peticion/detalles-peticion';
 
@@ -21,23 +21,29 @@ export class PeticionesPage {
   idDoctor:string;
   usuario:string;
   anterior:string;
-  historial:Consulta[];
-  pacHistorial:Consulta[]=[];
-  keys;
+  historial:Consulta[];  
+  pacientes:Paciente[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbF:FirebaseDbProvider) {
     this.idDoctor = navParams.get('id');
     this.usuario=navParams.get('usuario');
-    this.dbF.loadConsults().subscribe(
-      res=>{
-        this.historial = res;            
-        this.keys = Object.keys(this.historial[0]);
-        this.pacHistorial=[];
-        this.keys.forEach(element => {
-          this.pacHistorial.push(this.historial[0][element]);
-          console.log(element);
+
+    this.dbF.loadPatients().subscribe( pacs =>{
+      this.pacientes=pacs;
+      this.historial=[];
+      this.pacientes.forEach(element => {
+        this.dbF.loadConsultsByIdPaciente(element.idPaciente).subscribe(res =>{
+          res.forEach(element => {
+            this.historial.push(element);
+            console.log("sacamos de "+element+"=>>"+res)
+          });      
+          
         });
+      });
+      
     });
+
+    
     
   }
 
