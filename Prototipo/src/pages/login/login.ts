@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MenuDoctorPage } from '../menu-doctor/menu-doctor';
 import { MenuPacientePage } from '../menu-paciente/menu-paciente';
 import { RegistroPage } from '../registro/registro';
+import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db';
 
 /**
  * Generated class for the LoginPage page.
@@ -19,12 +20,23 @@ import { RegistroPage } from '../registro/registro';
 export class LoginPage {
   doctor : boolean;
   usuario:string;
-  user:string;
+  user: string;
+  historial: any;
+  hospital: string;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.doctor=false;
-    this.user="";
-    
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dbF: FirebaseDbProvider) {
+    this.doctor = false;
+    this.user = "";
+    this.dbF.loadDoctorsId(this.user).subscribe(
+      res => {
+        this.hospital = res[0].hospital;
+        console.log(res);
+
+
+
+      })
+
+
   }
 
   ionViewDidLoad() {
@@ -42,14 +54,21 @@ export class LoginPage {
     //TODO revisar si es medico o doctor
      this.doctor = (this.user == "1");
 
+   
+
 
      this.usuario = this.usuario;
      //pruebas
-     this.usuario = "pepito de momento";
-    if(this.doctor){
+    this.usuario = "pepito de momento";
+    this.hospital = "arturo soria"
+    
+    if (this.doctor) {
+
+      
       this.navCtrl.push(MenuDoctorPage,{
-        id:this.usuario,
-        usuario:this.usuario
+        id:this.user,
+        usuario: this.usuario,
+        hospital: this.hospital
         });
     }
     else {
@@ -61,3 +80,4 @@ export class LoginPage {
   }
 
 }
+
