@@ -12,4 +12,20 @@
 
 <ion-content padding>
 
+  <h2 class="historial">Contestaciones Dr {{usuario}}</h2>
+
+  <div class="peticion">
+
+    <p class="historialpeticion">Petición {{fecha}} - {{fecha2}}</p>
+    <ion-icon name="ios-albums" class="flechapeticion" (click)=VerHistorial()>Historial Paciente</ion-icon>
+    <h3 class="sintomas"> Sintomas                      </h3>
+    <p class="sintomas_cuerpo">  {{sintomas}}   </p>
+  </div>
+
+  <h3 class="historial"> Medicacion Recetada                      </h3>
+  <p class="receta">   {{  recetas   }}                       </p>
+
+
+
+
 </ion-content>
