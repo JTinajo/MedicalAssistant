@@ -79,7 +79,6 @@ export class PedirDiagnosticoPage {
   // cancelar vuelve atras
   cancelar(){
     this.navCtrl.removeView(this.navCtrl.last());
-  
   }
 
 }
