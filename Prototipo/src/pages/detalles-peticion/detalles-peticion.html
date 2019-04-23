@@ -16,14 +16,28 @@
 
   <div class="peticion">
 
-    <p class="historialpeticion">Petición {{fecha}} - {{fecha2}}</p>
+    <p class="historialpeticion">Petición {{consulta.fecha_consulta}} - {{consulta.fecha_sintomas}}</p>
     <ion-icon name="ios-albums" class="flechapeticion" (click)=VerHistorial()>Historial Paciente</ion-icon>
     <h3 class="sintomas"> Sintomas                      </h3>
-    <p class="sintomas_cuerpo">  {{sintomas}}   </p>
+    <!--       la descripcion  -->
+    <p  >  [descripcion: {{consulta.descripcion}}  ] </p>
+    <h3 class="historial"> Lista de sintomas                      </h3>
+    <!--       la sintomas pulsados  -->
+    <p class="sintomas_cuerpo" *ngFor="let sintoma of sintomas"> -  {{sintoma}}   </p>
   </div>
+  <!--       medicamentos que se toma actual  -->
+  <h3 class="historial"> Medicacion automedicada                      </h3>
+  <p class="receta" *ngFor="let medica of consulta.medicamentos_paciente">   - {{  medica   }}                       </p>
 
-  <h3 class="historial"> Medicacion Recetada                      </h3>
-  <p class="receta">   {{  recetas   }}                       </p>
+  <!--       parte doctor  -->
+  <!--       contestacion a los sintomas  -->
+  <h3 class="historial"> Diagnostico        </h3>
+  <p  > -  {{consulta.respuesta}}   </p>
+
+
+  <!--       medicamentos recetados  -->
+    <h3 class="historial"> Medicacion Recetada                      </h3>
+  <p class="receta" *ngFor="let medica of consulta.medicamentos_doctor">   - {{  medica   }}                       </p>
 
 
 

@@ -29,9 +29,8 @@ export class ContestarPeticionPage {
     this.idPaciente = navParams.get('idPaciente');
     this.idConsulta=navParams.get('idConsulta');
     this.dbF.loadConsultsByIdPaciente(this.idPaciente).subscribe(res=>{
-      console.log("res "+res);
-      res.forEach(element => {
-        console.log("element "+element);
+  
+      res.forEach(element => {  
         if(element.idConsulta== this.idConsulta){
           this.consulta=element;
         }

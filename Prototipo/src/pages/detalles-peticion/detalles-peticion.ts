@@ -20,30 +20,31 @@ export class DetallesPeticionPage {
   idDoctor: string;
   usuario: string;
   // datos consulta
-  consulta: Consulta[];
+  consulta: Consulta=new Consulta();
   idPaciente: string;
   idConsulta: string;
-  fecha: Consulta;
-  fecha2: Consulta;
-  sintomas: Consulta;
-  recetas: Consulta;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbF: FirebaseDbProvider) {
     this.idDoctor = navParams.get('id');
     this.usuario = navParams.get('usuario');
-
-    this.idDoctor = navParams.get('id');
-    this.usuario = navParams.get('usuario');
     this.idPaciente = navParams.get('idPaciente');
     this.idConsulta = navParams.get('idConsulta');
-    this.dbF.loadConsultsByIdConsultaPatient(this.idPaciente, this.idConsulta).subscribe(res => {
-      this.consulta = res; // se carga en consulta los datos de esta
-      console.log(res);
-      this.fecha = this.consulta[3];
-      this.fecha2 = this.consulta[4];
-      this.sintomas = this.consulta[8];
-      this.recetas = this.consulta[7];
+    this.consulta.medicamentos_paciente=[];
+    this.consulta.medicamentos_doctor=[];
+
+    this.dbF.loadConsultsByIdPaciente(this.idPaciente).subscribe(res=>{
+      res.forEach(element => {
+        if(element.idConsulta== this.idConsulta){
+          this.consulta=element;
+        }
+      });
+      console.log(this.consulta);
     });
+
+
+
+
     
 
 

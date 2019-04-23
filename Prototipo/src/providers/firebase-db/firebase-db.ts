@@ -111,9 +111,8 @@ export class FirebaseDbProvider {
     
    // modifica una consulta para añadir los datos del medico y los añade al historial del paciente
    // pasara a estar respondida
-   updateConsulta(idDoc:string, con:Consulta)
-	 {		
-    con.idDoctor= idDoc;
+   updateConsulta(con:Consulta)
+	 {		    
     this.afDB.database.ref('/consulta/'+con.idPaciente+"/"+con.idConsulta).remove();
     this.afDB.database.ref('/historial/'+con.idPaciente+"/"+con.idConsulta+"/").set(con);	
 
@@ -138,14 +137,6 @@ export class FirebaseDbProvider {
     console.log("BUSCANDO EN = " + '/historial/' + idPaciente +  "/");
     return this.afDB.list<Consulta>('/historial/' + idPaciente + "/" ).valueChanges();
 
-  }
-
-
-   
-   // carga consultas respondidas de un paciente con idPaciente e idConsulta
-   loadConsultsByIdConsultaPatient(idPaciente:string,idConsulta:string):Observable<Consulta[]>{
-     console.log("BUSCANDO EN = "+'/consulta/'+idPaciente+"/"+idConsulta+"/");
-    return this.afDB.list<Consulta>('/consulta/'+idPaciente+"/"+idConsulta).valueChanges();     
   }
 
 
