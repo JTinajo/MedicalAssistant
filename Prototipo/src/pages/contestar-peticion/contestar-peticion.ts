@@ -19,7 +19,7 @@ export class ContestarPeticionPage {
   idDoctor:string;
   usuario:string;
   // datos consulta
-  consulta:Consulta[];
+  consulta:Consulta;
   idPaciente:string;
   idConsulta:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,public dbF:FirebaseDbProvider) {
@@ -28,8 +28,15 @@ export class ContestarPeticionPage {
     this.usuario=navParams.get('usuario');
     this.idPaciente = navParams.get('idPaciente');
     this.idConsulta=navParams.get('idConsulta');
-    this.dbF.loadConsultsByIdConsultaPatient(this.idPaciente,this.idConsulta).subscribe(res=>{
-      this.consulta = res; // se carga en consulta los datos de esta
+    this.dbF.loadConsultsByIdPaciente(this.idPaciente).subscribe(res=>{
+      console.log("res "+res);
+      res.forEach(element => {
+        console.log("element "+element);
+        if(element.idConsulta== this.idConsulta){
+          this.consulta=element;
+        }
+      });
+      console.log(this.consulta);
     });
 
   }
