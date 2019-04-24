@@ -30,24 +30,29 @@
     </div>
     <!--       la sintomas pulsados  -->
     <p class="sintomas_cuerpo" *ngFor="let sintoma of sintomas"> -  {{sintoma}}   </p>
-
+  </div>
+  <div class="peticion_cuerpo_2">
     <!--       medicamentos que se toma actual  -->
     <div class="peticion_header">
       <h3 class="sintomas"> Medicacion automedicada                      </h3>
     </div>
     <p class="sintomas_cuerpo" *ngFor="let medica of consulta.medicamentos_paciente">   - {{  medica   }}                       </p>
+  </div>
+  <div class="peticion_cuerpo3">
     <!--       parte doctor  -->
     <!--       contestacion a los sintomas  -->
     <div class="peticion_header">
       <h3 class="sintomas"> Diagnostico        </h3>
     </div>
     <p class="sintomas_cuerpo"> -  {{consulta.respuesta}}   </p>
-
+  </div>
+  <div class="peticion_cuerpo3">
     <!--       medicamentos recetados  -->
     <div class="peticion_header">
       <h3 class="sintomas"> Medicacion Recetada                      </h3>
     </div>
-      <p class="sintomas_cuerpo" *ngFor="let medica of consulta.medicamentos_doctor">   - {{  medica   }}                       </p>
+    <p class="sintomas_cuerpo" *ngFor="let medica of consulta.medicamentos_doctor">   - {{  medica   }}                       </p>
+  </div>
 
-    </div>
+
 </ion-content>
