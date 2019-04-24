@@ -13,16 +13,27 @@ page-detalles-peticion {
 
   .peticion {
     background: #81BEF7;
+    border-radius: 25px;
   }
 
 
   .peticion_cuerpo {
-    background: #F2F2F2;
+    background: lightgrey;
+    border-radius: 25px;
+  }
+
+  .peticion_cuerpo_2 {
+    background: lightgrey;
+    border-radius: 25px;
+  }
+
+  .peticion_cuerpo3 {
+    border: 2px solid lightgrey;
+    border-radius: 25px;
   }
 
 
   .peticion_header {
-    background: lightgrey;
   }
 
   .contExtra {
@@ -30,16 +41,16 @@ page-detalles-peticion {
   }
 
   .sintomas {
-    width: 100%;
-    padding: 50px;
+    //width: 100%;
+    padding: 20px;
     margin: 20px;
     font-size: 1.5rem;
     text-decoration: underline;
   }
 
   .sintomas_cuerpo {
-    width: 100%;
-    padding: 50px;
+    //width: 100%;
+    padding: 20px;
     margin: 20px;
   }
 
@@ -55,14 +66,13 @@ page-detalles-peticion {
   .historial {
     font-size: 1.4rem;
     color: rgb(6, 20, 212);
-    margin-bottom: 5%;
-    padding-top: 5%;
+    margin-bottom: 5px;
+    padding-top: 5px;
   }
 
   .historialpeticion {
-    width: 100%;
- 
-    padding: 50px;
+    //width: 100%;
+    padding: 20px;
     margin: 20px;
     font-size: 1.5rem;
     font-weight: bold;
