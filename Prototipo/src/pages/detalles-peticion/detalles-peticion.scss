@@ -12,7 +12,17 @@ page-detalles-peticion {
   }
 
   .peticion {
-    margin-bottom: 5%;
+    background: #81BEF7;
+  }
+
+
+  .peticion_cuerpo {
+    background: #F2F2F2;
+  }
+
+
+  .peticion_header {
+    background: lightgrey;
   }
 
   .contExtra {
@@ -20,10 +30,19 @@ page-detalles-peticion {
   }
 
   .sintomas {
-    font-size: 1.4rem;
-    margin-bottom: 5%;
-    padding-top: 5%;
+    width: 100%;
+    padding: 50px;
+    margin: 20px;
+    font-size: 1.5rem;
+    text-decoration: underline;
   }
+
+  .sintomas_cuerpo {
+    width: 100%;
+    padding: 50px;
+    margin: 20px;
+  }
+
 
 
   .fotopaciente {
@@ -41,19 +60,26 @@ page-detalles-peticion {
   }
 
   .historialpeticion {
-    color: black;
-    font-size: 1.3rem;
     width: 100%;
+ 
+    padding: 50px;
+    margin: 20px;
+    font-size: 1.5rem;
     font-weight: bold;
-   
-    
   }
+
+
+
+
+
+
+
+
 
   .flechapeticion {
     float: right;
-    margin: auto;
+    text-decoration: underline;
     cursor: pointer;
-    padding: 10px;
   }
 
   .cuerpopeticion {
