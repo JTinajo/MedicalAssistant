@@ -25,9 +25,9 @@
             Historial paciente
           </div>
         </div>
+        <ion-item-divider class="divider"></ion-item-divider>
       </ion-card-header>
       <ion-card-content>
-        <ion-item-divider></ion-item-divider>
         <h2>Sintomas</h2>
         <ion-item>
           <span *ngFor="let s of consulta.sintomas">{{s}} </span>
@@ -36,8 +36,7 @@
     </ion-card>
 
     <ion-card padding class="responsecard">
-      <ion-card-title>Respuesta</ion-card-title>
-      <ion-textarea [(ngModel)]="consulta.respuesta">
+      <ion-textarea [(ngModel)]="consulta.respuesta" placeholder="Respuesta">
       </ion-textarea>
     </ion-card>
 

@@ -42,6 +42,10 @@ page-contestar-peticion {
     font-size: 13px;
 }
 
-ion-item-divider{
-    height: 1px;
+.divider{
+    height: 3px;
+    max-height: 3px;
+    min-height: 3px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }

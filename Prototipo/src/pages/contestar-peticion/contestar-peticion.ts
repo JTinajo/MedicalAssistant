@@ -68,6 +68,8 @@ export class ContestarPeticionPage {
 
   update_consulta(){
     this.consulta.medicamentos_doctor = this.medicamento;
+    this.dbF.updateConsulta(this.consulta)
+    this.navCtrl.pop()
   }
 
 }
