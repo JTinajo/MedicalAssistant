@@ -1,97 +1,54 @@
 page-detalles-peticion {
-  .navheader{
+  .navheader {
     height: 67px;
   }
-  .toolbar-title-ios{
+
+  .toolbar-title-ios {
     text-align: center;
     font-size: 1.5rem;
     font-weight: 600;
     color: rgb(6, 20, 212);
     pointer-events: auto;
-  } 
-  .fotopaciente{
+  }
+
+.fotopaciente {
     width: 50px;
     position: absolute;
     top: 15%;
     right: 5px;
-  } 
+  }
+  .historial{
+    font-size: 1.4rem;
+    color: rgb(6, 20, 212);
+}
 
-  .flechapeticion {
+  h2{
     font-size: 1.5rem;
-    margin-top: 2%;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-  .historialpeticion {
-    padding: 5% 0;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0;
-  }
-
-  .peticion {
-    background-color: #81BEF7;
-    text-align: center;
-    margin-bottom: 0;
-  }
-
-  .peticion_cuerpo {
-    background: lightgrey;
-    padding-bottom: 5%;
-  }
-
-  .peticion_header {
-    font-size: 1.5rem;
-  }
-
-  .sintomas {
-    //width: 100%;
-    padding: 5% 14%;
-    font-size: 1.5rem;
-    text-decoration: underline;
-  }
-
-  .sintomas_cuerpo {
-    //width: 100%;
-    padding: 0px;
-    margin-bottom:1%;
-    margin-top: 1%;
-    text-align: center;
   }
 
   #descripcion{
     text-align: justify;
-    padding: 0 10%;
-    margin-bottom:2%;
-    margin-top: 1%;
   }
 
-  .sintomas_cuerpo p{
-    margin-bottom: 0;
-  }
+  .tiltecardtext{
+    font-size: 13px;
+}
 
-  .peticion_cuerpo_2 {
-    background: lightgrey;
-    padding-bottom: 5%;
-  }
+.divider{
+    height: 3px;
+    max-height: 3px;
+    min-height: 3px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 
-  .peticion_cuerpo3 {
-    border: 2px solid lightgrey;
-  }
+.input-wrapper{
+  text-align: justify;
+}
 
-  .contExtra {
-    display: flex;
-  }
-
-
-  .historial {
-    font-size: 1.4rem;
-    color: rgb(6, 20, 212);
-    margin-bottom: 5px;
-    padding-top: 5px;
-  }
-
+.tiltecardtext{
+  text-align: center;
+}
   
 
 

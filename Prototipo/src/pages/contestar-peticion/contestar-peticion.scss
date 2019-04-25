@@ -1,51 +1,87 @@
 page-contestar-peticion {
 
+    .navheader {
+        height: 67px;
+      }
+    
+      .toolbar-title-ios {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: rgb(6, 20, 212);
+        pointer-events: auto;
+      }
+
+    .fotodoctor {
+        width: 50px;
+        position: absolute;
+        top: 15%;
+        right: 5px;
+      }
+
+      h2{
+        font-size: 1.5rem;
+      }
+    
+      #descripcion{
+        text-align: justify;
+      }
+    
+      .input-wrapper{
+        text-align: justify;
+      }
+
+      ion-select{
+        font-size: 1.3rem;
+      }
+    
+    
+    .peticion-area{
+        display: flex;
+        flex-flow: column;
+    }
+    
+    .buttons-bottom{
+        display: flex;
+        flex-flow: row;
+    }
+    
+    .button-bottom{
+        flex-grow: 1000;
+    }
+    
+    .contestar-page{
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+    }
+    
+    .headerline{
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+    }
+    
+    .title-page{
+        font-size: 1.4rem;
+        color: rgb(6, 20, 212);
+    }
+    
+    .responsecard{
+        border-radius: 15px;
+    }
+    
+    .tiltecardtext{
+        font-size: 13px;
+    }
+    
+    .divider{
+        height: 3px;
+        max-height: 3px;
+        min-height: 3px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
 }
 
-
-.peticion-area{
-    display: flex;
-    flex-flow: column;
-}
-
-.buttons-bottom{
-    display: flex;
-    flex-flow: row;
-}
-
-.button-bottom{
-    flex-grow: 1000;
-}
-
-.contestar-page{
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-}
-
-.headerline{
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-}
-
-.title-page{
-    color: #6478D0;
-    font-size: 20px;
-}
-
-.responsecard{
-    border-radius: 15px;
-}
-
-.tiltecardtext{
-    font-size: 13px;
-}
-
-.divider{
-    height: 3px;
-    max-height: 3px;
-    min-height: 3px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}

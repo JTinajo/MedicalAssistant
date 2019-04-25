@@ -4,17 +4,19 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-  <ion-navbar>
-    <ion-title>Contestart Peticion</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-header class="header">
+    <ion-navbar class="navheader">
+      <ion-title class="titulo">MedicalAssistant</ion-title>
+      <img src="assets/imgs/fotodoc.jpg" class="fotodoctor">
+    </ion-navbar>
+  </ion-header>
 
 <ion-content padding>
   <div class="contestar-page">
     <div padding class="title-page">
       Contestaciones Dr {{usuario}}
     </div>
+
     <ion-card padding>
       <ion-card-header>
         <div class="headerline">
@@ -27,11 +29,40 @@
         </div>
         <ion-item-divider class="divider"></ion-item-divider>
       </ion-card-header>
+
+      <ion-card-content>
+          <h2>Edad</h2>
+          <ion-item>
+              <p>{{consulta.edad}}</p>
+          </ion-item>
+      </ion-card-content>
+
+      <ion-card-content>
+          <h2>Fecha Inicio</h2>
+          <ion-item>
+              <p>{{consulta.fecha_sintomas}}</p>
+          </ion-item>
+      </ion-card-content>
+
+      <ion-card-content>
+          <h2>Descripción</h2>
+            <ion-item>
+              <p id="descripcion">{{consulta.descripcion}} </p>
+            </ion-item>
+          </ion-card-content>
+      
       <ion-card-content>
         <h2>Sintomas</h2>
         <ion-item>
-          <span *ngFor="let s of consulta.sintomas">{{s}} </span>
+          <p *ngFor="let s of consulta.sintomas">{{s}} </p>
         </ion-item>
+      </ion-card-content>
+
+      <ion-card-content>
+          <h2>Medicamentos Consumidos</h2>
+            <ion-item>
+              <p *ngFor="let e of consulta.medicamentos_paciente">{{e}} </p>
+            </ion-item>
       </ion-card-content>
     </ion-card>
 
@@ -41,7 +72,7 @@
     </ion-card>
 
     <ion-item padding>
-      <ion-label>Medicamento</ion-label>
+      <ion-label>Receta</ion-label>
       <ion-select [(ngModel)]="medicamento" multiple="true" cancelText="Cancelar" okText="Ok" placeholder="Seleccione">
         <ion-option value="nada">Nada</ion-option>
         <ion-option value="omeprazol">Omeprazol</ion-option>
@@ -56,7 +87,7 @@
     </ion-item>
 
     <div class="buttons-bottom" padding>
-      <button ion-button color="danger" class="button-bottom" padding (click)="goback()">
+      <button ion-button color="danger" class="button-bottom" padding>
         Cancelar
       </button>
       <button ion-button class="button-bottom" (click)="update_consulta()" padding>

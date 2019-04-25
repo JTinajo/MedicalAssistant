@@ -74,8 +74,4 @@ export class ContestarPeticionPage {
     this.navCtrl.pop()
   }
 
-  goback(){
-    this.navCtrl.pop()
-  }
-
 }
