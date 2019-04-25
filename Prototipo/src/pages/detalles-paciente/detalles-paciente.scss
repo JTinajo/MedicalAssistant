@@ -10,6 +10,45 @@ page-detalles-paciente {
         color: rgb(6, 20, 212);
         pointer-events: auto;
       }
+
+
+      .tiltecardtext{
+        font-size: 1.5rem;
+    }
+    
+    .divider{
+        height: 3px;
+        max-height: 3px;
+        min-height: 3px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .headerline{
+      text-align: center;
+  }
+  ion-card-header{
+    text-align: center;
+  }
+
+  h2{
+    font-size: 1.5rem;
+  }
+
+  #descripcion{
+    text-align: justify;
+  }
+
+  .input-wrapper{
+    text-align: justify;
+  }
+
+
+
+
+
+
+
     
       .historialpeticion {
         padding: 5% 0;
