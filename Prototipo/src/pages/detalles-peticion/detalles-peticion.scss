@@ -16,6 +16,31 @@ page-detalles-peticion {
     right: 5px;
   } 
 
+  #contenedorheader{
+    position: relative;
+    text-align: center;
+  }
+
+  #contFecha{
+    position: absolute;
+    right: 0;
+    top:0;
+    width: 70%;
+  }
+
+  #contEdad{
+    width: 30%;
+    margin-left: 7%;
+  }
+
+  #edad{
+    font-size: 1.3rem;
+  }
+
+  #fechaini{
+    font-size: 1.3rem;
+  }
+
   .flechapeticion {
     font-size: 1.5rem;
     margin-top: 2%;
