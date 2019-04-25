@@ -139,5 +139,10 @@ export class FirebaseDbProvider {
 
   }
 
+ // consulta leida
 
+  saveReadedRespond(con:Consulta){
+    con.leido=true;
+    this.afDB.database.ref('/historial/'+con.idPaciente+"/"+con.idConsulta+"/").set(con);	
+  }
 }

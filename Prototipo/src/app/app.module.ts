@@ -75,6 +75,7 @@ export class Consulta {
   idConsulta?:string;  
   idPaciente?:string;
   idDoctor?:string;
+  leido:boolean=false;
 }
 
 
