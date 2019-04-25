@@ -139,5 +139,11 @@ export class FirebaseDbProvider {
 
   }
 
+  loadResponds():Observable<Consulta[]> {
+    console.log("BUSCANDO EN = " + '/historial/' );
+    return this.afDB.list<Consulta>('/historial/').valueChanges();
+
+  }
+
 
 }

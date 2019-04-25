@@ -28,6 +28,10 @@ export class HistorialPage {
     this.id_doctor = this.navParams.get('id')
     this.id_patient = this.navParams.get('idPaciente')
     this.username = this.navParams.get('usuario')
+    if(this.username == undefined){
+      this.username == ''
+    }
+    this.filter_value = this.username
     this.peticiones = []
     this.get_peticiones()
   }
@@ -44,7 +48,7 @@ export class HistorialPage {
   filtered_peticiones(){
     var output = []
     for(let p of this.peticiones){
-      if(this.filter_value == "" || p.idPaciente.includes(this.filter_value) || p.paciente.includes(this.filter_value)){
+      if(this.filter_value == "" || p.paciente.includes(this.filter_value)){
         output.push(p)
       }
     }

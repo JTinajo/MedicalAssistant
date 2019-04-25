@@ -41,13 +41,6 @@ export class DetallesPeticionPage {
       });
       console.log(this.consulta);
     });
-
-
-
-
-    
-
-
   }
 
 
@@ -59,12 +52,6 @@ export class DetallesPeticionPage {
       idPaciente: this.idPaciente
     });
   }
-
-
-
-
-
-
 
 
   ionViewDidLoad() {
