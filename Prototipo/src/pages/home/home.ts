@@ -15,7 +15,7 @@ export class HomePage {
   public myPerson :any;
 
   constructor(public navCtrl: NavController, public dbF:FirebaseDbProvider ) {
-    setTimeout(function(){ navCtrl.setRoot(LoginPage); }, 1250);
+	 setTimeout(function(){ navCtrl.setRoot(LoginPage); }, 1250);
 
   }
 
