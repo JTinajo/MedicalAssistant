@@ -33,8 +33,10 @@ export class DetallesPacientePage {
       res.forEach(element => {
         if(element.idConsulta== this.idConsulta){
           this.consulta=element;
-          if (!this.consulta.leido)
+          if (!this.consulta.leido){
+            this.consulta.leido=true;
             dbF.saveReadedRespond(this.consulta);
+          }
         }
       });
       console.log(this.consulta);
