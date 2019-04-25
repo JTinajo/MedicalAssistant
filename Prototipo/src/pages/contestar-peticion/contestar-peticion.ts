@@ -61,7 +61,9 @@ export class ContestarPeticionPage {
   goto_history(){
     this.navCtrl.push(
       HistorialPage, {
-        id: this.idPaciente
+        id: this.idDoctor,
+        usuario: this.usuario,
+        idPaciente: this.idPaciente
       }
     )
   }
