@@ -24,6 +24,7 @@ export class MenuPacientePage {
   hospital: string;
   latitud=0.0;
   longitud=0.0;
+  contador: number=0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbF:FirebaseDbProvider, 
     private platform: Platform, private geolocation: Geolocation) {
@@ -49,6 +50,20 @@ export class MenuPacientePage {
       // to stop watching
       watch.unsubscribe();
 
+    });
+
+
+    this.dbF.loadRespondByIdPaciente(this.idPaciente).subscribe(res=>{
+      res.forEach(element => {                
+          if (!element.leido)
+            this.contador++;
+
+        });
+        if(this.contador==0){
+          document.getElementById("sin_leer").style.display = "none";
+        }else {
+          document.getElementById("sin_leer").style.display = "inline";
+        }
     });
 
   }
