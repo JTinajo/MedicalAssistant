@@ -15,8 +15,11 @@
 
   <h2 class="historial">Historial del paciente {{nombrePaciente}}</h2>
 
-  <ion-card *ngFor="let his of historial" class="peticion">
-    <div class="contExtra">
+  <ion-card *ngFor="let his of historial"  class="peticion">
+    
+    <div [ngClass]="{'contExtra': his.leido,
+          'contExtra2': !his.leido}">
+    
       <p class="historialpeticion" (click)=peticioninfo(his.idConsulta)>Petición {{his.fecha_consulta}}</p>
       <ion-icon name="arrow-forward" class="flechapeticion" (click)=entrarConsulta(his.idConsulta)></ion-icon>
     </div>
