@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VerDiagnosticoPage } from '../ver-diagnostico/ver-diagnostico';
 import { PedirDiagnosticoPage } from '../pedir-diagnostico/pedir-diagnostico';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
+import { Geolocation } from '@ionic-native/geolocation';
+import { Platform } from 'ionic-angular';
 
 /**
  * Generated class for the MenuPacientePage page.
@@ -20,11 +22,38 @@ export class MenuPacientePage {
   usuario : string;
   idPaciente:string;
   hospital: string;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dbF:FirebaseDbProvider) {
+  latitud=0.0;
+  longitud=0.0;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dbF:FirebaseDbProvider, 
+    private platform: Platform, private geolocation: Geolocation) {
     this.idPaciente = navParams.get('id');
     this.usuario=navParams.get('usuario');
     this.hospital=navParams.get('hospital');
+
+    platform.ready().then(() => {
+
+      // get current position
+      geolocation.getCurrentPosition().then(pos => {
+        console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+        this.latitud=pos.coords.latitude;
+        this.longitud = pos.coords.longitude;
+      });
+
+      const watch = geolocation.watchPosition().subscribe(pos => {
+        console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+        this.latitud=pos.coords.latitude;
+        this.longitud = pos.coords.longitude;
+      });
+
+      // to stop watching
+      watch.unsubscribe();
+
+    });
+
   }
+
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPacientePage');
