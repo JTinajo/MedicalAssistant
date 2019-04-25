@@ -6,10 +6,64 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>contestar_peticion</ion-title>
+    <ion-title>Contestart Peticion</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <div class="contestar-page">
+    <div padding class="title-page">
+      Contestaciones Dr {{usuario}}
+    </div>
+    <ion-card padding>
+      <ion-card-header>
+        <div class="headerline">
+          <div slot="start" class="tiltecardtext">
+            Peticion <span [innerHTML]="consulta.fecha_consulta"></span>
+          </div>
+          <div slot="end" style="color: #6478D0" (click)="goto_history()" class="tiltecardtext">
+            Historial paciente
+          </div>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item-divider></ion-item-divider>
+        <h2>Sintomas</h2>
+        <ion-item>
+          <span *ngFor="let s of consulta.sintomas">{{s}} </span>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card padding class="responsecard">
+      <ion-card-title>Respuesta</ion-card-title>
+      <ion-textarea [(ngModel)]="consulta.respuesta">
+      </ion-textarea>
+    </ion-card>
+
+    <ion-item padding>
+      <ion-label>Medicamento</ion-label>
+      <ion-select [(ngModel)]="medicamento" multiple="true" cancelText="Cancelar" okText="Ok" placeholder="Seleccione">
+        <ion-option value="nada">Nada</ion-option>
+        <ion-option value="omeprazol">Omeprazol</ion-option>
+        <ion-option value="adiro">Adiro 100</ion-option>
+        <ion-option value="nolotil">Nolotil</ion-option>
+        <ion-option value="paracetamol ">Paracetamol </ion-option>
+        <ion-option value="antihistamínicos">Antihistamínicos</ion-option>
+        <ion-option value="ibuprofeno">Ibuprofeno</ion-option>
+        <ion-option value="enantyum">Enantyum</ion-option>
+        <ion-option value="alprazolam">Alprazolam</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="buttons-bottom" padding>
+      <button ion-button color="danger" class="button-bottom" padding>
+        Cancelar
+      </button>
+      <button ion-button class="button-bottom" (click)="update_consulta()" padding>
+        Responder
+      </button>
+    </div>
+  </div>
 
 </ion-content>

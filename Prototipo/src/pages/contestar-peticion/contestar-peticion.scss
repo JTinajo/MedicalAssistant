@@ -1,3 +1,47 @@
 page-contestar-peticion {
 
 }
+
+
+.peticion-area{
+    display: flex;
+    flex-flow: column;
+}
+
+.buttons-bottom{
+    display: flex;
+    flex-flow: row;
+}
+
+.button-bottom{
+    flex-grow: 1000;
+}
+
+.contestar-page{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.headerline{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.title-page{
+    color: #6478D0;
+    font-size: 20px;
+}
+
+.responsecard{
+    border-radius: 15px;
+}
+
+.tiltecardtext{
+    font-size: 13px;
+}
+
+ion-item-divider{
+    height: 1px;
+}
