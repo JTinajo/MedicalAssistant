@@ -32,32 +32,35 @@ export class MenuDoctorPage {
     private platform: Platform, private geolocation: Geolocation) {
     this.idDoctor = navParams.get('id');
     this.usuario = navParams.get('usuario');
+
+    platform.ready().then(() => {
+
+      // get current position
+      geolocation.getCurrentPosition().then(pos => {
+        console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+        this.latitud=pos.coords.latitude;
+        this.longitud = pos.coords.longitude;
+      });
+
+      const watch = geolocation.watchPosition().subscribe(pos => {
+        console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+        this.latitud=pos.coords.latitude;
+        this.longitud = pos.coords.longitude;
+      });
+
+      // to stop watching
+      watch.unsubscribe();
+
+    });
  
     this.dbF.loadDoctorsId(this.idDoctor).subscribe(
       res => {
         this.historial = res;
         console.log(res);
         this.hospital = "La Paz";
-      });
 
-      platform.ready().then(() => {
 
-        // get current position
-        geolocation.getCurrentPosition().then(pos => {
-          console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-          this.latitud=pos.coords.latitude;
-          this.longitud = pos.coords.longitude;
-        });
-  
-        const watch = geolocation.watchPosition().subscribe(pos => {
-          console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
-          this.latitud=pos.coords.latitude;
-          this.longitud = pos.coords.longitude;
-        });
-  
-        // to stop watching
-        watch.unsubscribe();
-  
+
       });
 
     
