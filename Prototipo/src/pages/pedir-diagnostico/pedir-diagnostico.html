@@ -67,9 +67,11 @@
           </ion-select>
       </ion-item>
 
-      <ion-item>
-        <ion-input  [(ngModel)]="descripcion"  [ngModelOptions]="{standalone: true}" class="observaciones" type="text" placeholder="Describa su caso brevemente"></ion-input>
-      </ion-item>
+      <ion-card padding class="responsecard">
+        <ion-textarea [(ngModel)]="descripcion"  [ngModelOptions]="{standalone: true}" class="observaciones" type="text" placeholder="Describa su caso brevemente">
+        </ion-textarea>
+      </ion-card>
+      
     
   </ion-list>
 
