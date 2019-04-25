@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 
+import { DetallesPacientePage } from '../detalles-paciente/detalles-paciente';
+
 
 
 /**
@@ -53,6 +55,14 @@ export class VerDiagnosticoPage {
       this.anterior=undefined;
     }
     
+  }
+
+
+  entrarConsulta (idConsulta:string){
+    this.navCtrl.push(DetallesPacientePage, {
+     consulta : idConsulta,
+     id : this.idPaciente
+    });
   }
 
   
