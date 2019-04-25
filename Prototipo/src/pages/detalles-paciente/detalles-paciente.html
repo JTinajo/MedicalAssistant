@@ -13,26 +13,33 @@
 <ion-content padding>  
   <div class="peticion">
     <p class="historialpeticion">
-      Petición {{consulta.fecha_consulta}} - {{consulta.fecha_sintomas}}
+      Petición {{consulta.fecha_consulta}} - {{consulta.paciente}}
     </p>
-
   </div>
+
+
   <div class="peticion_cuerpo">
+
     <div class="peticion_header">
-      <h3 class="sintomas"> Sintomas                      </h3>
+      <h3 class="sintomas"> Sintomas</h3>
     </div>
     <!--       la descripcion  -->
-    <p class="sintomas_cuerpo">  [descripcion: {{consulta.descripcion}}  ] </p>
+    <p class="sintomas_cuerpo" id="descripcion">  [descripcion: {{consulta.descripcion}}  ] </p>
+
+
     <div class="peticion_header">
-      <h3 class="sintomas"> Lista de sintomas                      </h3>
+      <h3 class="sintomas"> Lista de sintomas</h3>
     </div>
     <!--       la sintomas pulsados  -->
     <p class="sintomas_cuerpo" *ngFor="let sintoma of consulta.sintomas"> -  {{sintoma}}   </p>
+
   </div>
+
+
   <div class="peticion_cuerpo_2">
     <!--       medicamentos que se toma actual  -->
     <div class="peticion_header">
-      <h3 class="sintomas"> Medicacion automedicada                      </h3>
+      <h3 class="sintomas"> Medicación Automedicada</h3>
     </div>
     <p class="sintomas_cuerpo" *ngFor="let medica of consulta.medicamentos_paciente">   - {{  medica   }}                       </p>
   </div>
@@ -40,14 +47,14 @@
     <!--       parte doctor  -->
     <!--       contestacion a los sintomas  -->
     <div class="peticion_header">
-      <h3 class="sintomas"> Diagnostico        </h3>
+      <h3 class="sintomas"> Diagnóstico</h3>
     </div>
     <p class="sintomas_cuerpo"> -  {{consulta.respuesta}}   </p>
   </div>
   <div class="peticion_cuerpo3">
     <!--       medicamentos recetados  -->
     <div class="peticion_header">
-      <h3 class="sintomas"> Medicacion Recetada                      </h3>
+      <h3 class="sintomas"> Medicación Recetada                      </h3>
     </div>
     <p class="sintomas_cuerpo" *ngFor="let medica of consulta.medicamentos_doctor">   - {{  medica   }}                       </p>
   </div>
