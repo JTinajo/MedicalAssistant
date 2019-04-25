@@ -18,6 +18,7 @@ import { PedirDiagnosticoPage } from '../pages/pedir-diagnostico/pedir-diagnosti
 import { PeticionesPage } from '../pages/peticiones/peticiones';
 import { RegistroPage } from '../pages/registro/registro';
 import { VerDiagnosticoPage } from '../pages/ver-diagnostico/ver-diagnostico';
+import { DetallesPacientePage } from '../pages/detalles-paciente/detalles-paciente';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -90,7 +91,8 @@ export class Consulta {
     PedirDiagnosticoPage, 
     PeticionesPage,
     RegistroPage,
-    VerDiagnosticoPage 
+    VerDiagnosticoPage,
+    DetallesPacientePage 
   ],
   imports: [
     BrowserModule,
@@ -111,7 +113,8 @@ export class Consulta {
     PedirDiagnosticoPage, 
     PeticionesPage,
     RegistroPage,
-    VerDiagnosticoPage 
+    VerDiagnosticoPage,
+    DetallesPacientePage 
   ],
   providers: [
     StatusBar,
