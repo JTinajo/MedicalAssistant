@@ -58,7 +58,7 @@ export class LoginPage {
       res => {
         res.forEach(element => {
           console.log(element.usuario + "//"+element.pass);
-          if(element.usuario== user && element.pass==pass){
+          if(element.usuario.toLocaleLowerCase== user.toLocaleLowerCase && element.pass==pass){
           
              this.navCtrl.push(MenuDoctorPage,{
               id:element.idDoctor,
