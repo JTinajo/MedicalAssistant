@@ -60,8 +60,8 @@ export class VerDiagnosticoPage {
 
   entrarConsulta (idConsulta:string){
     this.navCtrl.push(DetallesPacientePage, {
-     consulta : idConsulta,
-     id : this.idPaciente
+      idConsulta : idConsulta,
+     idPaciente : this.idPaciente
     });
   }
 

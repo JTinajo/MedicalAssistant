@@ -24,12 +24,12 @@ export class DetallesPacientePage {
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public dbF: FirebaseDbProvider) {
-    this.idPaciente = navParams.get('idConsulta');
-    this.idConsulta = navParams.get('idPaciente');
+    this.idConsulta = navParams.get('idConsulta');
+    this.idPaciente  = navParams.get('idPaciente');
     this.consulta.medicamentos_paciente=[];
     this.consulta.medicamentos_doctor=[];
-    
-    this.dbF.loadConsultsByIdPaciente(this.idPaciente).subscribe(res=>{
+
+    this.dbF.loadRespondByIdPaciente(this.idPaciente).subscribe(res=>{
       res.forEach(element => {
         if(element.idConsulta== this.idConsulta){
           this.consulta=element;
