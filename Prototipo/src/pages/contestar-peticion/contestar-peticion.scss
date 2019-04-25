@@ -18,6 +18,22 @@ page-contestar-peticion {
         top: 15%;
         right: 5px;
       }
+
+      h2{
+        font-size: 1.5rem;
+      }
+    
+      #descripcion{
+        text-align: justify;
+      }
+    
+      .input-wrapper{
+        text-align: justify;
+      }
+
+      ion-select{
+        font-size: 1.3rem;
+      }
     
     
     .peticion-area{
