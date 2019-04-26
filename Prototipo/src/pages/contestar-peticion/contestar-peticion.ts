@@ -76,4 +76,8 @@ export class ContestarPeticionPage {
     this.navCtrl.pop();
   }
 
+  cancelar(){
+    this.navCtrl.pop();
+  }
+
 }

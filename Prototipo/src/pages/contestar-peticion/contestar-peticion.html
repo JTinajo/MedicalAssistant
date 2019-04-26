@@ -16,12 +16,13 @@
     <div padding class="title-page">
       Contestaciones Dr {{usuario}}
     </div>
-
+    
     <ion-card padding>
       <ion-card-header>
         <div class="headerline">
+            
           <div slot="start" class="tiltecardtext">
-            Peticion <span [innerHTML]="consulta.fecha_consulta"></span>
+            Peticion {{consulta.fecha_consulta}}         
           </div>
           <div slot="end" style="color: #6478D0" (click)="goto_history()" class="tiltecardtext">
             Historial paciente
@@ -29,8 +30,9 @@
         </div>
         <ion-item-divider class="divider"></ion-item-divider>
       </ion-card-header>
-
+      <h1>Consulta de:      {{consulta.paciente}}  </h1>
       <ion-card-content>
+          
           <h2>Edad</h2>
           <ion-item>
               <p>{{consulta.edad}}</p>
@@ -45,11 +47,9 @@
       </ion-card-content>
 
       <ion-card-content>
-          <h2>Descripción</h2>
-            
-          <p id="descripcion">{{consulta.descripcion}} </p>
-            
-          </ion-card-content>
+          <h2>Descripción</h2>            
+          <p id="descripcion">{{consulta.descripcion}} </p>            
+      </ion-card-content>
       
       <ion-card-content>
         <h2>Sintomas</h2>
@@ -87,7 +87,7 @@
     </ion-item>
 
     <div class="buttons-bottom" padding>
-      <button ion-button color="danger" class="button-bottom" padding>
+      <button ion-button color="danger" (click)="cancelar()" class="button-bottom" padding>
         Cancelar
       </button>
       <button ion-button class="button-bottom" (click)="update_consulta()" padding>
