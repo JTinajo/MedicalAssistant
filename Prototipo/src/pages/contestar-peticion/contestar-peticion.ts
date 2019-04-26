@@ -71,8 +71,9 @@ export class ContestarPeticionPage {
 
   update_consulta(){
     this.consulta.medicamentos_doctor = this.medicamento;
-    this.dbF.updateConsulta(this.consulta)
-    this.navCtrl.pop()
+    this.dbF.updateConsulta(this.consulta);
+    this.navCtrl.remove(this.navCtrl.length()-2);
+    this.navCtrl.pop();
   }
 
 }

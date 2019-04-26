@@ -50,7 +50,7 @@ export class PeticionesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PeticionesPage');
   }
-
+ 
   /**
    * 
    * @param id del elemento a mostrar rapido
