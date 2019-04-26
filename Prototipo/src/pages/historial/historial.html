@@ -16,11 +16,11 @@
     <ion-textarea [(ngModel)]="filter_value" rows="1"></ion-textarea>
   </ion-item>
   <ion-list>
-    <ion-item *ngFor="let p of filtered_peticiones()" (click)="goto_details(p)">
+    <ion-card *ngFor="let p of filtered_peticiones()" (click)="goto_details(p)">
       <ion-label>
-        Peticion {{p.fecha_consulta}}
+         Peticion {{p.fecha_consulta}} - {{p.paciente}}
       </ion-label>
-      <ion-icon name="arrow-forward" color="dark"></ion-icon>
-    </ion-item>
+     <!-- <ion-icon name="arrow-forward" color="dark"></ion-icon>-->
+    </ion-card>
   </ion-list>
 </ion-content>
