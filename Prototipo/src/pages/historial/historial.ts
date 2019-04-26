@@ -59,10 +59,11 @@ export class HistorialPage {
   }
 
   filtered_peticiones(){
-    var output = []
+    var output = [];
+    
     console.log('filter value: ' + this.filter_value)
     for(let p of this.peticiones){
-      if(this.filter_value === undefined || this.filter_value == "" || p.paciente === undefined || p.paciente.includes(this.filter_value)){
+      if(this.filter_value === undefined || this.filter_value == "" || p.paciente === undefined || p.paciente.includes(this.filter_value.toLocaleLowerCase())){
         output.push(p)
       }
     }
