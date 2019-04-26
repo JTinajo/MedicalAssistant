@@ -62,7 +62,8 @@ export class ContestarPeticionPage {
     this.navCtrl.push(
       HistorialPage, {
         id: this.idDoctor,
-        usuario: this.consulta.paciente,
+        usuario: this.usuario,
+        usuario_paciente: this.consulta.paciente,
         idPaciente: this.idPaciente
       }
     )

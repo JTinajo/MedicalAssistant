@@ -32,15 +32,26 @@ export class DetallesPeticionPage {
     this.idConsulta = navParams.get('idConsulta');
     this.consulta.medicamentos_paciente=[];
     this.consulta.medicamentos_doctor=[];
-
-    this.dbF.loadConsultsByIdPaciente(this.idPaciente).subscribe(res=>{
-      res.forEach(element => {
-        if(element.idConsulta== this.idConsulta){
-          this.consulta=element;
-        }
+    if(navCtrl.last().name.includes('Historial')){
+      this.dbF.loadRespondByIdPaciente(this.idPaciente).subscribe(res=>{
+        res.forEach(element => {
+          if(element.idConsulta== this.idConsulta){
+            this.consulta=element;
+          }
+        });
+        console.log(this.consulta);
       });
-      console.log(this.consulta);
-    });
+  
+    } else{
+      this.dbF.loadConsultsByIdPaciente(this.idPaciente).subscribe(res=>{
+        res.forEach(element => {
+          if(element.idConsulta== this.idConsulta){
+            this.consulta=element;
+          }
+        });
+        console.log(this.consulta);
+      });
+    }
   }
 
 
