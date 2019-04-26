@@ -63,6 +63,7 @@ export class ContestarPeticionPage {
       HistorialPage, {
         id: this.idDoctor,
         usuario: this.usuario,
+        usuario_paciente: this.consulta.paciente,
         idPaciente: this.idPaciente
       }
     )
